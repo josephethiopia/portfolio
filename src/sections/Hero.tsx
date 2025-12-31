@@ -48,8 +48,7 @@ export const HeroSection = () => {
               </div>
 
               <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-none md:leading-tight">
-                <span className="text-white">Digital Software</span><br />
-                <span className="text-reveal">Architect.</span>
+                <span className="text-white">Software Dev </span><br />
               </h1>
             </motion.div>
 
@@ -59,7 +58,7 @@ export const HeroSection = () => {
               transition={{ delay: 0.8 }}
               className="text-white/40 text-base md:text-xl font-light max-w-2xl leading-relaxed"
             >
-              Senior Software Engineer specializing in <span className="text-white/80">distributed systems</span> and <span className="text-white/80">large-scale backend architectures</span>.
+              Senior Software Engineer specializing in <span className="text-white/80">fullstack applications</span> and <span className="text-white/80">large-scale backend architectures</span>.
               Engineering resilient SaaS ecosystems that bridge the gap between complex engineering and seamless user experiences.
             </motion.p>
           </div>
