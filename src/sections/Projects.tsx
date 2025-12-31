@@ -18,13 +18,6 @@ import MojoImage from "../../public/images/mojo.png";
 
 const projects = [
   {
-    name: "Tigat.net",
-    description: "Tigat.net is a platform for learning and teaching.",
-    image: tigatImage,
-    link: "https://tigat.net",
-    location: "Ethiopia",
-  },
-  {
     name: "Servicenow",
     description: "Servicenow is a platform for learning and teaching.",
     image: servicenowImage,
@@ -37,13 +30,6 @@ const projects = [
     image: whalersImage,
     link: "https://whalerapp.com",
     location: "USA",
-  },
-  {
-    name: "Nileode Technologies",
-    description: "Nileode Technologies is a platform for learning and teaching.",
-    image: nileodeImage,
-    link: "https://nileode.com",
-    location: "Ethiopia",
   },
   {
     name: "Lalibela",
@@ -81,72 +67,110 @@ const projects = [
     link: "https://calmify.com",
     location: "Ethiopia",
   },
+  {
+    name: "Tigat.net",
+    description: "Tigat.net is a platform for learning and teaching.",
+    image: tigatImage,
+    link: "https://tigat.net",
+    location: "Ethiopia",
+  },
+  {
+    name: "Nileode Technologies",
+    description: "Nileode Technologies is a platform for learning and teaching.",
+    image: nileodeImage,
+    link: "https://nileode.com",
+    location: "Ethiopia",
+  },
 ];
 
 export function ProjectsSection() {
   return (
-    <div className=" h-full my-40">
-      <div className="max-w-6xl mx-auto mb-12">
-        <div className="flex justify-center">
-          <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center backdrop-blur-sm">
-            Real-world Results
-          </p>
+    <section id="projects" className="py-24 md:py-32 bg-[#030712]">
+      <div className="container px-4 md:px-6">
+        <div className="flex flex-col items-center text-center space-y-4 mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-sm font-medium text-emerald-400"
+          >
+            Portfolio
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter"
+          >
+            Featured <span className="text-reveal">Creations.</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="max-w-[700px] text-white/40 md:text-xl lg:text-lg font-light"
+          >
+            A collection of projects where engineering meets artistic vision.
+          </motion.p>
         </div>
-        <h1 className="font-cursive text-3xl md:text-5xl text-center mt-6">Featured Projects</h1>
-        <p className="text-center text-white/60 mt-4 md:text-lg max-w-md mx-auto">
-          See how I transformed concepts into engaging digital experiences.
-        </p>
 
-        {/* main projects */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-10 font-poppins w-full">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className={`flex flex-col gap-4 ${index % 2 !== 0 ? "mt-8" : ""}`}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-100px" }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.1,
-                ease: "easeOut",
-              }}
-            >
+        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[300px]">
+          {projects.map((project, index) => {
+            // Define bento-style spans based on index
+            let spanClass = "md:col-span-2 lg:col-span-2";
+            if (index === 0) spanClass = "md:col-span-2 lg:col-span-4 lg:row-span-2";
+            if (index === 1) spanClass = "md:col-span-2 lg:col-span-2 lg:row-span-1";
+            if (index === 2) spanClass = "md:col-span-2 lg:col-span-2 lg:row-span-2";
+
+            return (
               <motion.div
-                className="flex flex-row gap-4 p-2 bg-gradient-to-br from-emerald-300 to-sky-500 backdrop-blur-sm rounded-lg"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
+                key={project.name}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className={`${spanClass} relative group overflow-hidden rounded-3xl border border-white/10 glass`}
               >
-                <Image src={project.image} alt={project.name} className="rounded-lg" />
+                <div className="absolute inset-0 z-0">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    fill
+                    className="object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-in-out grayscale group-hover:grayscale-0"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+                </div>
+
+                <div className="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                  <div className="space-y-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <p className="text-emerald-400 text-xs font-bold tracking-widest uppercase">{project.location}</p>
+                    <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-emerald-300 transition-colors uppercase tracking-tighter">
+                      {project.name}
+                    </h3>
+                    <p className="text-sm text-white/40 line-clamp-2 max-w-sm">
+                      {project.description}
+                    </p>
+
+                    <div className="pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <Link
+                        href={project.link}
+                        target="_blank"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-emerald-400 transition-colors"
+                      >
+                        VIEW PROJECT
+                        <ArrowRightIcon className="size-4" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
-              <motion.div
-                className="flex flex-row gap-1 items-center"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-              >
-                <h3 className="text-2xl font-cursive">{project.name}</h3> -
-                <p className="text-white/60">{project.location}</p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-              >
-                <Link href={project.link} className="w-1/3" target="_blank">
-                  <button className="bg-white text-gray-950 h-12 w-1/3 rounded-xl font-semibold inline-flex items-center justify-center gap-2 cursor-pointer hover:bg-white/80   transition-all duration-300 capitalize ">
-                    <span> check it out </span>
-                    <ArrowRightIcon className="size-4 " />
-                  </button>
-                </Link>
-              </motion.div>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

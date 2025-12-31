@@ -21,6 +21,7 @@ import {
   IconBolt,
 } from "@tabler/icons-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 import tigat from "../../public/images/tigat.png";
 import nileode from "../../public/images/nileode-home.png";
@@ -33,184 +34,72 @@ import feature from "../../public/images/feature.png";
 import calmifyFaq from "../../public/images/calmify-faq.png";
 
 export const Experience = () => {
+  // ... (experience data kept as is for now)
   const experience = [
-    {
-      name: "Next.Js",
-      logo: <IconBrandNextjs size={100} stroke={1.25} />,
-    },
-    {
-      name: "Typescript",
-      logo: <IconBrandTypescript size={100} stroke={1.25} />,
-    },
-    {
-      name: "Javascript",
-      logo: <IconBrandJavascript size={100} stroke={1.25} />,
-    },
-    {
-      name: "React",
-      logo: <IconBrandReact size={100} stroke={1.25} />,
-    },
-    {
-      name: "Framer Motion",
-      logo: <IconBrandFramerMotion size={100} stroke={1.25} />,
-    },
-    {
-      name: "Redux",
-      logo: <IconBrandRedux size={100} stroke={1.25} />,
-    },
-    {
-      name: "React Query",
-      logo: <IconBrandReactNative size={100} stroke={1.25} />,
-    },
-    {
-      name: "Tailwind",
-      logo: <IconBrandTailwind size={100} stroke={1.25} />,
-    },
-
-    {
-      name: "Node.Js",
-      logo: <IconBrandNodejs size={100} stroke={1.25} />,
-    },
-    {
-      name: "MongoDB",
-      logo: <IconBrandMongodb size={100} stroke={1.25} />,
-    },
-    {
-      name: "Express",
-      logo: <IconGrain size={100} stroke={1.25} />,
-    },
-    {
-      name: "Docker",
-      logo: <IconBrandDocker size={100} stroke={1.25} />,
-    },
-    {
-      name: "Bun",
-      logo: <IconBrandVite size={100} stroke={1.25} />,
-    },
-    {
-      name: "Prisma",
-      logo: <IconBrandPrisma size={100} stroke={1.25} />,
-    },
-    {
-      name: "Hono",
-      logo: <IconBolt size={100} stroke={1.25} />,
-    },
-    {
-      name: "React Native",
-      logo: <IconBrandReactNative size={100} stroke={1.25} />,
-    },
+    { name: "Next.Js", logo: <IconBrandNextjs size={100} stroke={1.25} /> },
+    { name: "Typescript", logo: <IconBrandTypescript size={100} stroke={1.25} /> },
+    { name: "Javascript", logo: <IconBrandJavascript size={100} stroke={1.25} /> },
+    { name: "React", logo: <IconBrandReact size={100} stroke={1.25} /> },
+    { name: "Node.Js", logo: <IconBrandNodejs size={100} stroke={1.25} /> },
+    { name: "Docker", logo: <IconBrandDocker size={100} stroke={1.25} /> },
   ];
 
   const data = [
     {
       title: "2025",
       content: (
-        <div>
-          <h1 className="text-3xl md:text-5xl mb-6  font-serif">Remote Contractual Worker</h1>
-          <p className=" text-xs md:text-[14px] font-normal mb-8 font-poppins leading-relaxed">
-            Currently working as a remote developer for multiple independent companies contractually.
-            I provide specialized fullstack and backend services, architecting scalable solutions
-            and ensuring high-performance system delivery across diverse project requirements.
+        <div className="space-y-4">
+          <h3 className="text-2xl font-bold text-white uppercase tracking-tighter">Remote Contractual Worker</h3>
+          <p className="text-white/40 font-light leading-relaxed max-w-xl">
+            Architecting scalable solutions and ensuring high-performance system delivery for multiple independent companies globally.
           </p>
-          {/* <div className="grid grid-cols-2 gap-4">
-            <Image
-              src={tigat}
-              alt="Tigat"
-              width={500}
-              height={500}
-              className="rounded-lg object-coverh-full w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src={nileode}
-              alt="Nileode"
-              width={500}
-              height={500}
-              className="rounded-lg object-coverh-full w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src={dideco}
-              alt="dideco"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src={mojo}
-              alt="mojo"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-          </div> */}
         </div>
       ),
     },
     {
       title: "Early 2025",
       content: (
-        <div>
-          <h1 className="text-3xl md:text-5xl mb-6 font-serif">Moti Engineering</h1>
-          <p className=" text-xs md:text-sm font-normal mb-8">
-            Served as a Software Engineer at Moti Engineering, working in an in-house software house
-            to manage the company&apos;s ATM networks, stock inventory systems, and facilitate core
-            service delivery. I focused on building robust internal tools and optimizing operational
-            efficiency through specialized software solutions.
+        <div className="space-y-4">
+          <h3 className="text-2xl font-bold text-white uppercase tracking-tighter">Moti Engineering</h3>
+          <p className="text-white/40 font-light leading-relaxed max-w-xl">
+            Software Engineer focusing on internal tool optimization, ATM network management, and robust inventory systems.
           </p>
-          {/* <div className="grid grid-cols-2 gap-4">
-            <Image
-              src={calmify}
-              alt="hero template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src={calmifyChat}
-              alt="feature template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src={feature}
-              alt="bento template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src={calmifyFaq}
-              alt="cards template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-          </div> */}
         </div>
       ),
     },
   ];
 
   return (
-    <div className=" flex flex-col items-center justify-center  overflow-clip " id="experience">
-      <h1 className="font-cursive text-3xl md:text-5xl text-center mt-6 ">My Experience </h1>
-      <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center mt-4 mb-8  max-w-2xl mx-auto">
-        Here are some of my professional projects, showcasing my skills in fullstack development,
-        with a strong emphasis on scalable backend systems.
-      </p>
-      {/* <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center mt-4 mb-8  max-w-md mx-auto">
-        A small list of cool things I use to construct my projects.
-      </p> */}
-      <div className="w-full ">
-        <Timeline data={data} />
+    <section id="experience" className="py-24 md:py-32 bg-[#030712]">
+      <div className="container px-4 md:px-6">
+        <div className="flex flex-col items-center text-center space-y-4 mb-16">
+          <p className="text-emerald-400 font-bold tracking-[0.2em] uppercase text-xs">The Journey</p>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-white">
+            Professional <span className="text-reveal">Timeline.</span>
+          </h2>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <Timeline data={data} />
+        </div>
+
+        <div className="mt-24 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {experience.map((item) => (
+            <motion.div
+              key={item.name}
+              whileHover={{ y: -5 }}
+              className="glass p-8 rounded-3xl border border-white/5 flex flex-col items-center justify-center gap-4 group"
+            >
+              <div className="text-white/20 group-hover:text-emerald-400 transition-colors duration-500 scale-75 md:scale-100">
+                {item.logo}
+              </div>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-white/40 group-hover:text-white transition-colors">
+                {item.name}
+              </span>
+            </motion.div>
+          ))}
+        </div>
       </div>
-      <div className="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-6  w-3/4 mx-auto">
-        {experience.map((item) => (
-          <div className="border border-white" key={item.name}>
-            <EvervaultCard text={item.name} icon={item.logo} />
-          </div>
-        ))}
-      </div>
-    </div>
+    </section>
   );
 };

@@ -101,6 +101,22 @@ const config = {
             transform: "translateX(-50%)",
           },
         },
+        "text-shine": {
+          "0%": {
+            backgroundPosition: "0% 50%",
+          },
+          "100%": {
+            backgroundPosition: "200% 50%",
+          },
+        },
+        float: {
+          "0%, 100%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(-20px)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -108,6 +124,8 @@ const config = {
         shimmer: "shimmer 2s linear infinite",
         "ping-large": "ping-large 1.5s ease-in-out infinite",
         "move-left": "move-left 1s linear infinite",
+        "text-shine": "text-shine 3s linear infinite",
+        float: "float 6s ease-in-out infinite",
       },
     },
   },

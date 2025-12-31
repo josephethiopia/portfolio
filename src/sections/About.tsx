@@ -1,48 +1,58 @@
-import aiStartupLandingPage from "../../public/images/ai-startup-landing-page.png";
-import AboutImage from "../../public/images/aboutme.png";
-import AboutImageMobile from "../../public/images/aboutme (2).png";
-import Image from "next/image";
-import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import { motion } from "framer-motion";
 
 export const AboutSection = () => {
   return (
-    <div className=" flex items-start justify-center -mt-32" id="about">
-      <ContainerScroll
-        titleComponent={
-          <div className="flex flex-col items-center justify-center md:gap-3 -mb-28 md:-mb-0">
-            <h1 className="font-cursive text-3xl md:text-5xl text-center mt-6">About Me</h1>
-            <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center">
-              A glimpse into my world
-            </p>
-          </div>
-        }
-      >
-        <div className="flex flex-col gap-6 max-w-4xl mx-auto p-4 md:p-8 h-full overflow-y-auto custom-scrollbar">
-          <p className="text-white/70 text-lg md:text-xl leading-relaxed">
-            I am a <span className="text-white font-semibold">Senior Fullstack Developer</span> dedicated to architecting and scaling
-            <span className="text-white font-semibold"> complex SaaS ecosystems</span>. My approach is centered on building systems
-            that remain performant and maintainable even as they grow in complexity.
-          </p>
-          <p className="text-white/70 text-lg md:text-xl leading-relaxed">
-            When it comes to the frontend, I leverage <span className="text-emerald-300">Next.js</span> to build high-performance,
-            SEO-optimized interfaces that provide a seamless user experience while maintaining a secure server-side foundation.
-            On the backend, I specialize in engineering high-throughput microservices using
-            <span className="text-sky-400">Node.js, Bun, and Hono</span>. I choose these tools for their incredible efficiency and
-            execution speed, ensuring that the services I build can handle heavy traffic with minimal latency.
-          </p>
-          <p className="text-white/70 text-lg md:text-xl leading-relaxed">
-            Data integrity is at the core of any successful application. I use <span className="text-emerald-300">Prisma</span> to
-            maintain a type-safe, reliable connection to the database, ensuring that the application&apos;s data layer is as
-            robust as its business logic. To ensure these systems run consistently across all environments, I implement
-            <span className="text-sky-400">Docker</span> to containerize services, making deployments predictable and infrastructure
-            management more streamlined.
-          </p>
-          <p className="text-white/70 text-lg md:text-xl leading-relaxed">
-            My goal is never just to &quot;write code,&quot; but to engineer resilient architectures that solve core business
-            problems and evolve with the user.
-          </p>
+    <section id="about" className="py-24 md:py-32 bg-[#030712] relative overflow-hidden">
+      <div className="container relative z-10 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="glass p-8 md:p-12 rounded-[2rem] border border-white/5 relative bg-gradient-to-br from-white/5 to-transparent"
+          >
+            <div className="absolute top-0 right-0 p-8">
+              <div className="size-24 bg-emerald-500/10 blur-3xl rounded-full" />
+            </div>
+
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <p className="text-emerald-400 font-bold tracking-[0.2em] uppercase text-xs">The Visionary</p>
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white">
+                  Architecting <br />
+                  <span className="text-reveal">Resilient Systems.</span>
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-white/5">
+                <div className="space-y-4">
+                  <h3 className="text-white font-bold text-xl uppercase tracking-widest">Philosophy</h3>
+                  <p className="text-white/40 leading-relaxed font-light">
+                    I don&apos;t just &quot;write code&quot;. I engineer architectures that solve core business problems.
+                    Every line of code is a brick in a scalable, high-performance ecosystem designed to evolve with the user.
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-white font-bold text-xl uppercase tracking-widest">Strategy</h3>
+                  <p className="text-white/40 leading-relaxed font-light">
+                    Leveraging <span className="text-emerald-300/80 font-medium whitespace-nowrap">Next.js</span> for precision frontends and
+                    <span className="text-sky-400/80 font-medium whitespace-nowrap"> Node.js / Hono</span> for large-scale backends.
+                    Containerized with <span className="text-white/80 font-medium">Docker</span> for absolute predictability.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-8 flex flex-wrap gap-4">
+                {['Next.js', 'Typescript', 'Node.js', 'Docker', 'Prisma', 'Hono'].map((tech) => (
+                  <span key={tech} className="px-4 py-1.5 rounded-full border border-white/5 bg-white/5 text-white/60 text-xs font-semibold uppercase tracking-wider">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
-      </ContainerScroll>
-    </div>
+      </div>
+    </section>
   );
 };

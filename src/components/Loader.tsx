@@ -8,113 +8,76 @@ interface LoaderProps {
 }
 
 export default function Loader({ onComplete }: LoaderProps) {
-  const [counter, setCounter] = useState(0);
   const [showLoader, setShowLoader] = useState(true);
-  const [loaderPhase, setLoaderPhase] = useState<"counting" | "transforming" | "exiting">(
-    "counting"
-  );
 
   useEffect(() => {
-    // Counter animation
-    const counterInterval = setInterval(() => {
-      setCounter((prev) => {
-        if (prev >= 100) {
-          clearInterval(counterInterval);
-          return 100;
-        }
-        return prev + 1;
-      });
-    }, 50); // 5 seconds total (100 increments * 50ms)
-
-    // Phase transitions
-    setTimeout(() => setLoaderPhase("transforming"), 6000);
-    setTimeout(() => setLoaderPhase("exiting"), 7000);
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setShowLoader(false);
       onComplete?.();
-    }, 8000);
+    }, 4500); // Shorter, punchier intro
 
-    return () => clearInterval(counterInterval);
+    return () => clearTimeout(timer);
   }, [onComplete]);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {showLoader && (
         <motion.div
+          key="loader"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="w-full h-full bg-gray-950 fixed top-0 left-0 text-white pointer-events-none z-50 flex items-center justify-center font-cursive"
+          exit={{
+            opacity: 0,
+            transition: { duration: 1, ease: [0.76, 0, 0.24, 1] }
+          }}
+          className="fixed inset-0 z-[9999] bg-[#030712] flex items-center justify-center overflow-hidden"
         >
-          {/* Counter */}
-          <motion.div
-            initial={{ y: 0, opacity: 1 }}
-            animate={
-              loaderPhase === "transforming" || loaderPhase === "exiting"
-                ? { y: -150, opacity: 0 }
-                : { y: 0, opacity: 1 }
-            }
-            transition={{ duration: 1, ease: "easeInOut" }}
-            className="fixed left-12 bottom-12 text-8xl font-normal tabular-nums"
-          >
-            {counter.toString().padStart(3, "0")}
-          </motion.div>
-
-          {/* Loader Container */}
-          <motion.div
-            initial={{ scale: 1, rotate: 0, y: 0, x: 0 }}
-            animate={
-              loaderPhase === "exiting"
-                ? { scale: 40, rotate: 45, y: 500, x: 2000 }
-                : { scale: 1, rotate: 0, y: 0, x: 0 }
-            }
-            transition={{ duration: 1, ease: "easeInOut" }}
-            className="absolute top-1/2 left-1/2 w-[300px] h-[50px] -translate-x-1/2 -translate-y-1/2  flex"
-          >
-            {/* Loader Background */}
+          {/* Background Ambient Glow */}
+          <div className="absolute inset-0 z-0">
             <motion.div
-              initial={{ backgroundColor: "#6b7280" }}
-              animate={
-                loaderPhase === "transforming" || loaderPhase === "exiting"
-                  ? { backgroundColor: "transparent" }
-                  : { backgroundColor: "#6b7280" }
-              }
-              transition={{ duration: 0.1 }}
-              className="absolute inset-0"
-            />
-
-            {/* Loader Bar 1 */}
-            <motion.div
-              initial={{ width: 0, rotate: 0, y: 0 }}
               animate={{
-                width: loaderPhase === "counting" ? "200px" : "200px",
-                rotate: loaderPhase === "transforming" || loaderPhase === "exiting" ? 90 : 0,
-                y: loaderPhase === "transforming" || loaderPhase === "exiting" ? -50 : 0,
+                scale: [1, 1.1, 1],
+                opacity: [0.05, 0.1, 0.05]
               }}
-              transition={{
-                width: { duration: 6, ease: "easeInOut" },
-                rotate: { duration: 0.5, delay: loaderPhase === "transforming" ? 0 : 0 },
-                y: { duration: 0.5, delay: loaderPhase === "transforming" ? 0 : 0 },
-              }}
-              className="bar relative bg-white h-[50px] z-10"
+              transition={{ duration: 4, repeat: Infinity }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 blur-[120px] rounded-full"
             />
+          </div>
 
-            {/* Loader Bar 2 */}
+          <div className="relative z-10 flex flex-col items-center">
+            <div className="overflow-hidden">
+              <motion.h1
+                initial={{ y: 100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
+                className="text-4xl md:text-6xl font-bold tracking-tighter text-white uppercase italic"
+              >
+                Yoseph <span className="text-reveal">Ashenafi.</span>
+              </motion.h1>
+            </div>
+
             <motion.div
-              initial={{ width: 0, x: 0, y: 0 }}
-              animate={{
-                width: counter > 38 ? "100px" : 0,
-                x: loaderPhase === "transforming" || loaderPhase === "exiting" ? -75 : 0,
-                y: loaderPhase === "transforming" || loaderPhase === "exiting" ? 75 : 0,
-              }}
-              transition={{
-                width: { duration: 4.1, ease: "easeInOut" },
-                x: { duration: 0.5, delay: loaderPhase === "transforming" ? 0 : 0 },
-                y: { duration: 0.5, delay: loaderPhase === "transforming" ? 0 : 0 },
-              }}
-              className="bar relative bg-white h-[50px] z-10"
-            />
-          </motion.div>
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 3, delay: 0.5, ease: "easeInOut" }}
+              className="mt-6 h-[1px] bg-white/10 relative"
+            >
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 3, delay: 0.5, ease: "easeInOut" }}
+                className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-sky-500 shadow-[0_0_15px_rgba(52,211,153,0.5)]"
+              />
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 3.5, duration: 0.5 }}
+              className="mt-4 text-white/20 text-xs font-bold tracking-[0.3em] uppercase"
+            >
+              Initializing Excellence
+            </motion.p>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
