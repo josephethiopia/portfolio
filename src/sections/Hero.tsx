@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 import memojiImage from "../../public/images/memoji-computer.png";
-import { ArrowDown, Code2, Sparkles, Terminal, ShieldCheck, Zap } from "lucide-react";
+import { ArrowDown, Code2, Zap } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 const metrics = [
   { label: "Years Experience", value: "5+" },
-  { label: "Global Projects", value: "15+" },
-  { label: "System Uptime", value: "99.9%" },
+  { label: "Projects Completed", value: "15+" },
+  { label: "Main Stack", value: "Next.js / Node" },
 ];
 
 export const HeroSection = () => {
@@ -42,7 +42,7 @@ export const HeroSection = () => {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md">
               <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
               <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">
-                Available for Senior Roles & Consulting
+                Available for projects & roles
               </span>
             </div>
             <span className="hidden sm:inline-block text-white/30 text-xs font-mono">
@@ -57,13 +57,12 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="space-y-4"
           >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.08] text-white">
-              Software Architect & <br className="hidden sm:inline" />
-              <span className="text-reveal">Fullstack Engineer.</span>
+            <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight leading-[1.08] text-white">
+              Software <span className="text-reveal">Engineer.</span>
             </h1>
 
             <p className="text-white/60 text-base md:text-xl font-light leading-relaxed max-w-2xl pt-2">
-              Engineering resilient, cloud-native applications and scalable backend architectures. Transforming complex business logic into intuitive, high-performance web experiences.
+              I build web and mobile applications using Next.js, React Native (Expo), Node.js, and Telegram Mini Apps.
             </p>
           </motion.div>
 
@@ -76,7 +75,7 @@ export const HeroSection = () => {
           >
             {metrics.map((m, idx) => (
               <div key={idx} className="space-y-1">
-                <p className="text-2xl md:text-4xl font-extrabold text-emerald-400 tracking-tight">{m.value}</p>
+                <p className="text-2xl md:text-3xl font-extrabold text-emerald-400 tracking-tight">{m.value}</p>
                 <p className="text-[10px] md:text-xs text-white/50 uppercase tracking-wider font-semibold">{m.label}</p>
               </div>
             ))}
@@ -92,14 +91,14 @@ export const HeroSection = () => {
             <Link href="#projects" className="flex-1 sm:flex-none">
               <button className="w-full sm:w-auto px-8 py-4 bg-emerald-400 text-black font-extrabold rounded-2xl hover:bg-emerald-300 transition-all duration-300 active:scale-95 uppercase tracking-widest text-xs shadow-[0_0_30px_rgba(52,211,153,0.3)] flex items-center justify-center gap-2">
                 <Code2 className="size-4" />
-                EXPLORE PROJECTS
+                VIEW PROJECTS
               </button>
             </Link>
 
             <Link href="/resume" className="flex-1 sm:flex-none">
               <button className="w-full sm:w-auto px-8 py-4 glass border border-white/10 text-white font-extrabold rounded-2xl hover:bg-white/10 transition-all duration-300 active:scale-95 uppercase tracking-widest text-xs flex items-center justify-center gap-2">
                 <ArrowDown className="size-4 text-emerald-400" />
-                VIEW RESUME
+                RESUME
               </button>
             </Link>
 
@@ -115,7 +114,7 @@ export const HeroSection = () => {
               </div>
               <div className="text-left">
                 <p className="text-xs font-bold text-white leading-tight">Yoseph Ashenafi</p>
-                <p className="text-[10px] text-emerald-400 font-mono">SWE / Fullstack</p>
+                <p className="text-[10px] text-emerald-400 font-mono">Software Engineer</p>
               </div>
             </div>
           </motion.div>
@@ -125,4 +124,5 @@ export const HeroSection = () => {
     </section>
   );
 };
+
 

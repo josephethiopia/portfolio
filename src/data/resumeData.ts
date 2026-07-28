@@ -39,57 +39,57 @@ export interface ResumeData {
 export const resumeData: ResumeData = {
   personal: {
     name: "Yoseph Ashenafi",
-    title: "Software Architect & Infrastructure Engineer",
+    title: "Software Engineer (Web & Mobile)",
     email: "yosephashenafi.07@gmail.com",
     phone: "+251 969 751 194",
-    location: "Addis Ababa, Ethiopia (Available for Global Remote)",
+    location: "Addis Ababa, Ethiopia (Remote / Relocation)",
     website: "https://github.com/josephethropia",
     github: "https://github.com/josephethropia",
     linkedin: "https://www.linkedin.com/in/yoseph-ashenafi-750346262",
     telegram: "https://t.me/joaccount",
     summary:
-      "Results-driven Software Architect and Infrastructure Management specialist with deep expertise in fullstack web engineering, resilient backend systems, and high-concurrency Telegram Mini Apps. Combines rigorous infrastructure management principles from Addis Ababa University with modern Next.js/Node.js application delivery to engineer scalable, low-latency enterprise digital products."
+      "Software Engineer specializing in Web and Mobile applications (Next.js, React Native / Expo, Node.js, and Telegram Mini Apps). B.Sc. in Infrastructure Management from Addis Ababa University (Graduating Class 2026)."
   },
   skills: [
     {
-      category: "Specialized Ecosystems",
+      category: "Specializations",
       items: [
         "Telegram Bot & Mini App Development (@lehulum_exams_bot)",
-        "Enterprise System Architecture & Cloud Infrastructure",
-        "High-Concurrency REST & WebSockets Services",
-        "Performance Optimization & Core Web Vitals (98+)"
+        "Android & Mobile Apps (React Native & Expo)",
+        "Web Application Development",
+        "REST & WebSockets APIs"
       ]
     },
     {
-      category: "Frontend Engineering",
-      items: ["Next.js (App Router)", "TypeScript", "React 18", "Tailwind CSS", "Framer Motion", "Zustand & Redux"]
+      category: "Frontend & Mobile",
+      items: ["Next.js (App Router)", "React Native & Expo", "TypeScript", "React", "Tailwind CSS"]
     },
     {
-      category: "Backend & Infrastructure",
-      items: ["Node.js & Express", "Hono.js & Edge Runtime", "PostgreSQL & Prisma ORM", "MongoDB", "Docker Containerization", "CI/CD Pipelines", "Linux Administration"]
+      category: "Backend & DevOps",
+      items: ["Node.js & Express", "Hono.js", "PostgreSQL & Prisma ORM", "MongoDB", "Docker", "Linux Administration"]
     }
   ],
   experience: [
     {
-      role: "Senior Fullstack Engineer & Systems Consultant",
-      company: "Independent Global Technology Consultant",
+      role: "Software Engineer",
+      company: "Independent Consultant",
       location: "Remote",
       period: "2025 – Present",
       highlights: [
-        "Architecting production Next.js and Node.js microservices for international enterprise clients across North America and East Africa.",
-        "Engineered specialized Telegram Mini Apps (including Lehulum Exams `@lehulum_exams_bot`), combining responsive WebApp UIs, instant evaluation engines, and automated bot webhooks.",
-        "Implemented containerized Docker workflows, sub-100ms API response pipelines, and secure payment integrations handling high concurrent user volume."
+        "Building production web applications and APIs for clients using Next.js, Node.js, and TypeScript.",
+        "Engineered Telegram Mini Apps including Lehulum Exams (`@lehulum_exams_bot`), combining WebApp interfaces, quiz scoring logic, and bot handlers.",
+        "Set up Docker containers and API routes for reliable client data delivery."
       ]
     },
     {
-      role: "Lead Fullstack & Telegram Mini App Developer",
-      company: "Lehulum Exams Platform",
+      role: "Fullstack Developer",
+      company: "Lehulum Exams",
       location: "Addis Ababa, Ethiopia",
       period: "2025 – 2026",
       highlights: [
-        "Designed and deployed the Lehulum Exams Telegram Mini App ecosystem (`@lehulum_exams_bot`) tailored for national exam preparation.",
-        "Built interactive exam simulators, instant scoring feedback algorithms, and daily streak tracking modules directly embedded inside Telegram.",
-        "Optimized mobile client rendering speed for low-bandwidth cellular connections, achieving sub-second screen loads."
+        "Built the Lehulum Exams Telegram Mini App (`@lehulum_exams_bot`) for student national exam preparation.",
+        "Created interactive exam simulators, quiz scoring algorithms, and student study modules inside Telegram.",
+        "Optimized mobile frontend speed for smooth performance on cellular networks."
       ]
     }
   ],
@@ -97,26 +97,26 @@ export const resumeData: ResumeData = {
     {
       name: "Lehulum Exams",
       subtitle: "Telegram Mini App (@lehulum_exams_bot)",
-      description: "National exam preparation ecosystem engineered as a seamless Telegram Mini App with real-time quiz evaluation and performance analytics.",
+      description: "Exam preparation platform built as a Telegram Mini App with real-time quizzes and score tracking.",
       tech: ["Telegram WebApp API", "Next.js", "TypeScript", "Node.js", "Tailwind CSS"],
       link: "https://t.me/lehulum_exams_bot"
     },
     {
       name: "ServiceNow Platform Portal",
       subtitle: "Enterprise Workflow System",
-      description: "Enterprise IT workflow automation & ITIL management portal engineered for streamlined digital transformations.",
-      tech: ["Next.js", "TypeScript", "REST APIs", "Enterprise RBAC"]
+      description: "Enterprise IT workflow portal for managing service requests and system monitoring.",
+      tech: ["Next.js", "TypeScript", "REST APIs", "Tailwind CSS"]
     },
     {
       name: "Whalers Crypto Analytics",
-      subtitle: "Web3 Liquidity Dashboard",
-      description: "High-throughput analytics platform aggregating real-time crypto transactions and liquidity metrics into clean visual dashboards.",
+      subtitle: "Liquidity Dashboard",
+      description: "Crypto transaction analytics platform displaying liquidity metrics in real-time.",
       tech: ["React", "TypeScript", "Ethers.js", "WebSockets"]
     },
     {
       name: "Calmify AI",
-      subtitle: "AI Mental Health Companion",
-      description: "Innovative wellness app utilizing AI sentiment analysis for personalized stress-reduction exercises and mood tracking analytics.",
+      subtitle: "Mental Health App",
+      description: "Wellness app with AI sentiment analysis for stress-reduction exercises and mood tracking.",
       tech: ["Next.js", "OpenAI API", "Tailwind CSS", "Zustand"]
     }
   ],

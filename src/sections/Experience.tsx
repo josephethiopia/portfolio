@@ -35,15 +35,15 @@ export const Experience = () => {
               <Briefcase className="size-5" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white tracking-tight">Senior Fullstack & Telegram Mini App Architect</h3>
-              <p className="text-xs text-emerald-400 font-mono">Independent Global Consultant</p>
+              <h3 className="text-xl font-bold text-white tracking-tight">Software Engineer</h3>
+              <p className="text-xs text-emerald-400 font-mono">Independent Consultant</p>
             </div>
           </div>
           <p className="text-white/60 font-light text-sm leading-relaxed">
-            Architecting scalable cloud microservices, high-conversion Next.js web applications, and feature-rich Telegram Mini Apps for global tech clients and startups.
+            Building web applications, backend APIs, Expo Android apps, and Telegram Mini Apps for clients.
           </p>
           <div className="flex flex-wrap gap-2 pt-2">
-            {["Telegram Mini Apps", "Next.js 14", "TypeScript", "Microservices", "Docker"].map((skill) => (
+            {["Next.js", "TypeScript", "React Native / Expo", "Telegram Mini Apps", "Node.js", "Docker"].map((skill) => (
               <span key={skill} className="px-2.5 py-1 text-[10px] font-medium bg-white/5 border border-white/10 rounded-full text-white/70">
                 {skill}
               </span>
@@ -53,7 +53,7 @@ export const Experience = () => {
       ),
     },
     {
-      title: "2025",
+      title: "2025 - 2026",
       content: (
         <div className="space-y-4 p-6 rounded-2xl glass-card">
           <div className="flex items-center gap-3">
@@ -61,15 +61,15 @@ export const Experience = () => {
               <Briefcase className="size-5" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white tracking-tight">Lead Mini App & Web Engineer</h3>
+              <h3 className="text-xl font-bold text-white tracking-tight">Web & Mobile Developer</h3>
               <p className="text-xs text-sky-400 font-mono">Lehulum Exams Ecosystem (@lehulum_exams_bot)</p>
             </div>
           </div>
           <p className="text-white/60 font-light text-sm leading-relaxed">
-            Designed and engineered the Lehulum Exams Telegram Mini App for national exam preparation. Built seamless WebApp interfaces, instant quiz scoring algorithms, and automated bot integrations.
+            Engineered the Lehulum Exams Telegram Mini App for national exam preparation with instant quiz evaluation and streak tracking.
           </p>
           <div className="flex flex-wrap gap-2 pt-2">
-            {["Telegram WebApp API", "React", "Node.js", "Instant Quiz Engine", "Tailwind"].map((skill) => (
+            {["Telegram WebApp API", "React", "Node.js", "Tailwind CSS"].map((skill) => (
               <span key={skill} className="px-2.5 py-1 text-[10px] font-medium bg-white/5 border border-white/10 rounded-full text-white/70">
                 {skill}
               </span>

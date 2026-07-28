@@ -1,34 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cpu, Server, Layout, ShieldCheck, Layers, Terminal, Sparkles } from "lucide-react";
+import { Cpu, Server, Layout, MessageSquare, Smartphone, Terminal } from "lucide-react";
 
 const techStack = [
-  { name: "Telegram Bot & Mini Apps", category: "Specialized Ecosystem" },
-  { name: "Next.js 14+", category: "Frontend Framework" },
+  { name: "React Native & Expo", category: "Mobile Apps" },
+  { name: "Telegram Mini Apps", category: "Ecosystem" },
+  { name: "Next.js 14", category: "Frontend Framework" },
   { name: "TypeScript", category: "Language" },
-  { name: "Node.js / Express", category: "Backend Runtime" },
-  { name: "Docker", category: "DevOps & Containers" },
+  { name: "Node.js & Express", category: "Backend Runtime" },
+  { name: "Docker", category: "Containers" },
   { name: "PostgreSQL & Prisma", category: "Database & ORM" },
-  { name: "Tailwind CSS & Motion", category: "Design System" },
-  { name: "REST & WebSockets", category: "Protocols" },
+  { name: "Tailwind CSS", category: "Styling" },
 ];
 
 const pillars = [
   {
-    icon: <Server className="size-6 text-emerald-400" />,
-    title: "Scalable Backends",
-    description: "Designing high-concurrency microservices and decoupled REST/GraphQL APIs built to handle thousands of requests per second with sub-100ms latency."
-  },
-  {
     icon: <Layout className="size-6 text-sky-400" />,
-    title: "Precision Frontends",
-    description: "Crafting pixel-perfect, accessible user interfaces with Next.js, Framer Motion, and Tailwind CSS. Obsessed with 60fps micro-animations and zero layout shift."
+    title: "Web Development",
+    description: "Building fast, responsive web applications with Next.js, React, TypeScript, and Tailwind CSS."
   },
   {
-    icon: <ShieldCheck className="size-6 text-emerald-400" />,
-    title: "Production Resilience",
-    description: "Enforcing strict static typing with TypeScript, automated CI/CD deployment pipelines, containerized Docker builds, and robust database indexing."
+    icon: <Smartphone className="size-6 text-emerald-400" />,
+    title: "Mobile App Development",
+    description: "Developing Android and mobile apps using React Native and Expo."
+  },
+  {
+    icon: <Server className="size-6 text-sky-400" />,
+    title: "Backend & APIs",
+    description: "Building REST APIs and database services with Node.js, Express, and PostgreSQL."
+  },
+  {
+    icon: <MessageSquare className="size-6 text-emerald-400" />,
+    title: "Telegram Mini Apps",
+    description: "Developing interactive Telegram WebApps and bots, such as Lehulum Exams (@lehulum_exams_bot)."
   }
 ];
 
@@ -39,7 +44,7 @@ export const AboutSection = () => {
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/5 blur-[160px] rounded-full pointer-events-none" />
 
       <div className="container relative z-10 px-4 md:px-6">
-        <div className="max-w-5xl mx-auto space-y-12">
+        <div className="max-w-6xl mx-auto space-y-12">
           
           {/* Section Heading */}
           <div className="flex flex-col items-center text-center space-y-4">
@@ -50,7 +55,7 @@ export const AboutSection = () => {
               className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-emerald-400 backdrop-blur-md"
             >
               <Cpu className="size-3.5" />
-              Engineering Philosophy
+              What I Do
             </motion.div>
 
             <motion.h2
@@ -60,7 +65,7 @@ export const AboutSection = () => {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-6xl font-extrabold tracking-tight text-white"
             >
-              Architecting <span className="text-reveal">Resilient Systems.</span>
+              Building <span className="text-reveal">Reliable Software.</span>
             </motion.h2>
 
             <motion.p
@@ -70,12 +75,12 @@ export const AboutSection = () => {
               transition={{ delay: 0.2 }}
               className="max-w-2xl text-white/50 text-base md:text-lg font-light leading-relaxed"
             >
-              Code is more than syntax — it is the digital foundation of modern business scalable ecosystems.
+              Focusing on clean code, practical user experiences, and web & mobile development.
             </motion.p>
           </div>
 
-          {/* Pillars 3-Column Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Pillars 4-Column Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {pillars.map((pillar, idx) => (
               <motion.div
                 key={pillar.title}
@@ -83,16 +88,16 @@ export const AboutSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="glass-card p-8 rounded-3xl flex flex-col justify-between"
+                className="glass-card p-6 md:p-8 rounded-3xl flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <div className="p-3 rounded-2xl bg-white/5 border border-white/10 w-fit">
                     {pillar.icon}
                   </div>
-                  <h3 className="text-xl font-extrabold text-white tracking-tight">
+                  <h3 className="text-lg font-extrabold text-white tracking-tight">
                     {pillar.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-white/60 font-light leading-relaxed">
+                  <p className="text-xs text-white/60 font-light leading-relaxed">
                     {pillar.description}
                   </p>
                 </div>
@@ -110,11 +115,11 @@ export const AboutSection = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
               <div>
                 <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-2">
-                  <Terminal className="size-4" /> Core Technology Matrix
+                  <Terminal className="size-4" /> Core Stack
                 </span>
-                <h3 className="text-2xl font-bold text-white mt-1">Tech Stack & Tooling</h3>
+                <h3 className="text-2xl font-bold text-white mt-1">Technologies & Tools</h3>
               </div>
-              <span className="text-xs text-white/40 font-mono">Next.js 14 • Node.js • Bun</span>
+              <span className="text-xs text-white/40 font-mono">Next.js • Node.js • Bun</span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -139,4 +144,5 @@ export const AboutSection = () => {
     </section>
   );
 };
+
 
