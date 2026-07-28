@@ -19,10 +19,6 @@ const footerLinks = [
     href: "mailto:yosephashenafi.07@gmail.com",
   },
   {
-    title: "Linkedin",
-    href: "https://www.linkedin.com/in/yoseph-ashenafi-750346262",
-  },
-  {
     title: "Twitter",
     href: "https://x.com/YosephAshenafi3",
   },

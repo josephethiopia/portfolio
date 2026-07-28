@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Copy, Check, Send, Github, Linkedin, MessageSquare } from "lucide-react";
+import { Mail, Copy, Check, Send, Github, Phone, MessageSquare } from "lucide-react";
 
 export const ContactSection = () => {
   const [copied, setCopied] = useState(false);
   const email = "yosephashenafi.07@gmail.com";
+  const phone = "+251969751194";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);
@@ -33,12 +34,12 @@ export const ContactSection = () => {
 
           <div className="space-y-4">
             <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
-              Let&apos;s Build Something <br />
-              <span className="text-reveal">Exceptional Together.</span>
+              Let&apos;s Work <br />
+              <span className="text-reveal">Together.</span>
             </h2>
 
             <p className="text-white/60 text-base md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
-              Whether you are looking for a senior fullstack engineer, technical consulting, or architectural strategy — my inbox is open.
+              Available for web development, mobile apps, and Telegram Mini Apps. Feel free to contact me.
             </p>
           </div>
 
@@ -49,7 +50,7 @@ export const ContactSection = () => {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-emerald-400 text-black font-extrabold text-xs uppercase tracking-widest rounded-2xl hover:bg-emerald-300 transition-all duration-300 shadow-[0_0_25px_rgba(52,211,153,0.3)] active:scale-95"
             >
               <Send className="size-4" />
-              SEND EMAIL DIRECTLY
+              SEND EMAIL
             </a>
 
             <button
@@ -70,33 +71,46 @@ export const ContactSection = () => {
             </button>
           </div>
 
-          {/* Social Platforms */}
-          <div className="pt-8 border-t border-white/10 flex items-center justify-center gap-6">
+          {/* Social Platforms Icons */}
+          <div className="pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <a
               href="https://github.com/josephethropia"
               target="_blank"
               rel="noreferrer"
-              className="p-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all"
+              className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all flex items-center gap-2"
               aria-label="GitHub Profile"
             >
-              <Github className="size-5" />
+              <Github className="size-5 text-emerald-400" />
+              <span className="text-xs font-mono font-bold text-white">GitHub</span>
             </a>
+
             <a
               href="https://t.me/joaccount"
               target="_blank"
               rel="noreferrer"
-              className="p-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all flex items-center gap-2 px-4"
+              className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all flex items-center gap-2"
               aria-label="Telegram Profile"
             >
               <Send className="size-5 text-emerald-400" />
-              <span className="text-xs font-mono font-bold text-white">@joaccount</span>
+              <span className="text-xs font-mono font-bold text-white">Telegram</span>
             </a>
+
             <a
               href={`mailto:${email}`}
-              className="p-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all"
+              className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all flex items-center gap-2"
               aria-label="Email Direct"
             >
-              <Mail className="size-5" />
+              <Mail className="size-5 text-emerald-400" />
+              <span className="text-xs font-mono font-bold text-white">Email</span>
+            </a>
+
+            <a
+              href={`tel:${phone}`}
+              className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all flex items-center gap-2"
+              aria-label="Phone Call"
+            >
+              <Phone className="size-5 text-emerald-400" />
+              <span className="text-xs font-mono font-bold text-white">Phone</span>
             </a>
           </div>
         </motion.div>
@@ -104,4 +118,5 @@ export const ContactSection = () => {
     </section>
   );
 };
+
 
