@@ -1,99 +1,111 @@
-import { EvervaultCard } from "@/components/ui/evervault-card";
+"use client";
+
 import { Timeline } from "@/components/ui/timeline";
 import {
-  IconBrandFramerMotion,
-  IconBrandJavascript,
-  IconBrandMantine,
-  IconBrandMongodb,
   IconBrandNextjs,
-  IconBrandNodejs,
-  IconBrandPrisma,
-  IconBrandReact,
-  IconBrandDocker,
-  IconBrandReactNative,
-  IconBrandRedux,
-  IconBrandTailwind,
   IconBrandTypescript,
-  IconGitPullRequest,
-  IconGrain,
-  IconSql,
-  IconBrandVite,
-  IconBolt,
+  IconBrandJavascript,
+  IconBrandReact,
+  IconBrandNodejs,
+  IconBrandDocker,
+  IconBrandTailwind,
+  IconBrandMongodb,
+  IconBrandPrisma,
 } from "@tabler/icons-react";
-import Image from "next/image";
 import { motion } from "framer-motion";
-
-import tigat from "../../public/images/tigat.png";
-import nileode from "../../public/images/nileode-home.png";
-import dideco from "../../public/images/dideco.png";
-import mojo from "../../public/images/mojo.png";
-
-import calmify from "../../public/images/calmify-home.png";
-import calmifyChat from "../../public/images/ai-chat.png";
-import feature from "../../public/images/feature.png";
-import calmifyFaq from "../../public/images/calmify-faq.png";
+import { Briefcase, Calendar } from "lucide-react";
 
 export const Experience = () => {
-  // ... (experience data kept as is for now)
-  const experience = [
-    { name: "Next.Js", logo: <IconBrandNextjs size={100} stroke={1.25} /> },
-    { name: "Typescript", logo: <IconBrandTypescript size={100} stroke={1.25} /> },
-    { name: "Javascript", logo: <IconBrandJavascript size={100} stroke={1.25} /> },
-    { name: "React", logo: <IconBrandReact size={100} stroke={1.25} /> },
-    { name: "Node.Js", logo: <IconBrandNodejs size={100} stroke={1.25} /> },
-    { name: "Docker", logo: <IconBrandDocker size={100} stroke={1.25} /> },
+  const techSkills = [
+    { name: "Next.js 14", logo: <IconBrandNextjs size={48} stroke={1.5} /> },
+    { name: "TypeScript", logo: <IconBrandTypescript size={48} stroke={1.5} /> },
+    { name: "React", logo: <IconBrandReact size={48} stroke={1.5} /> },
+    { name: "Node.js", logo: <IconBrandNodejs size={48} stroke={1.5} /> },
+    { name: "Docker", logo: <IconBrandDocker size={48} stroke={1.5} /> },
+    { name: "Tailwind CSS", logo: <IconBrandTailwind size={48} stroke={1.5} /> },
   ];
 
-  const data = [
+  const timelineData = [
     {
-      title: "2025",
+      title: "2026 - Present",
       content: (
-        <div className="space-y-4">
-          <h3 className="text-2xl font-bold text-white uppercase tracking-tighter">Remote Contractual Worker</h3>
-          <p className="text-white/40 font-light leading-relaxed max-w-xl">
-            Architecting scalable solutions and ensuring high-performance system delivery for multiple independent companies globally.
+        <div className="space-y-4 p-6 rounded-2xl glass-card">
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <Briefcase className="size-5" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white tracking-tight">Senior Fullstack & Telegram Mini App Architect</h3>
+              <p className="text-xs text-emerald-400 font-mono">Independent Global Consultant</p>
+            </div>
+          </div>
+          <p className="text-white/60 font-light text-sm leading-relaxed">
+            Architecting scalable cloud microservices, high-conversion Next.js web applications, and feature-rich Telegram Mini Apps for global tech clients and startups.
           </p>
+          <div className="flex flex-wrap gap-2 pt-2">
+            {["Telegram Mini Apps", "Next.js 14", "TypeScript", "Microservices", "Docker"].map((skill) => (
+              <span key={skill} className="px-2.5 py-1 text-[10px] font-medium bg-white/5 border border-white/10 rounded-full text-white/70">
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
       ),
     },
     {
-      title: "Early 2025",
+      title: "2025",
       content: (
-        <div className="space-y-4">
-          <h3 className="text-2xl font-bold text-white uppercase tracking-tighter">Moti Engineering</h3>
-          <p className="text-white/40 font-light leading-relaxed max-w-xl">
-            Software Engineer focusing on internal tool optimization, ATM network management, and robust inventory systems.
+        <div className="space-y-4 p-6 rounded-2xl glass-card">
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-xl bg-sky-500/10 text-sky-400 border border-sky-500/20">
+              <Briefcase className="size-5" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white tracking-tight">Lead Mini App & Web Engineer</h3>
+              <p className="text-xs text-sky-400 font-mono">Lehulum Exams Ecosystem (@lehulum_exams_bot)</p>
+            </div>
+          </div>
+          <p className="text-white/60 font-light text-sm leading-relaxed">
+            Designed and engineered the Lehulum Exams Telegram Mini App for national exam preparation. Built seamless WebApp interfaces, instant quiz scoring algorithms, and automated bot integrations.
           </p>
+          <div className="flex flex-wrap gap-2 pt-2">
+            {["Telegram WebApp API", "React", "Node.js", "Instant Quiz Engine", "Tailwind"].map((skill) => (
+              <span key={skill} className="px-2.5 py-1 text-[10px] font-medium bg-white/5 border border-white/10 rounded-full text-white/70">
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
       ),
     },
   ];
 
   return (
-    <section id="experience" className="py-24 md:py-32 bg-[#030712]">
-      <div className="container px-4 md:px-6">
+    <section id="experience" className="py-24 md:py-36 bg-[#030712] relative overflow-hidden">
+      <div className="container px-4 md:px-6 relative z-10">
         <div className="flex flex-col items-center text-center space-y-4 mb-16">
-          <p className="text-emerald-400 font-bold tracking-[0.2em] uppercase text-xs">The Journey</p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-white">
-            Professional <span className="text-reveal">Timeline.</span>
+          <p className="text-emerald-400 font-bold tracking-[0.2em] uppercase text-xs">Career Timeline</p>
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white">
+            Professional <span className="text-reveal">Track Record.</span>
           </h2>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <Timeline data={data} />
+          <Timeline data={timelineData} />
         </div>
 
-        <div className="mt-24 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {experience.map((item) => (
+        {/* Skill Badges */}
+        <div className="mt-20 max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          {techSkills.map((item) => (
             <motion.div
               key={item.name}
-              whileHover={{ y: -5 }}
-              className="glass p-8 rounded-3xl border border-white/5 flex flex-col items-center justify-center gap-4 group"
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="glass p-6 rounded-2xl border border-white/10 flex flex-col items-center justify-center gap-3 group hover:border-emerald-500/40 hover:shadow-[0_0_25px_rgba(16,185,129,0.15)] transition-all duration-300"
             >
-              <div className="text-white/20 group-hover:text-emerald-400 transition-colors duration-500 scale-75 md:scale-100">
+              <div className="text-white/40 group-hover:text-emerald-400 transition-colors duration-300">
                 {item.logo}
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-white/40 group-hover:text-white transition-colors">
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60 group-hover:text-white transition-colors">
                 {item.name}
               </span>
             </motion.div>
@@ -103,3 +115,4 @@ export const Experience = () => {
     </section>
   );
 };
+

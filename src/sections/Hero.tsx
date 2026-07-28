@@ -1,115 +1,128 @@
+"use client";
+
 import Image from "next/image";
 import memojiImage from "../../public/images/memoji-computer.png";
-import grainImage from "../../public/images/grain.jpg";
-import StarIcon from "../../public/icons/star.svg";
-import SparkleIcon from "../../public/icons/sparkle.svg";
-// import resume from "../../public/resume.pdf";
-
-import { ArrowDown } from "lucide-react";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
-import { HeroOrbit } from "@/components/HeroOrbit";
+import { ArrowDown, Code2, Sparkles, Terminal, ShieldCheck, Zap } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+const metrics = [
+  { label: "Years Experience", value: "5+" },
+  { label: "Global Projects", value: "15+" },
+  { label: "System Uptime", value: "99.9%" },
+];
+
 export const HeroSection = () => {
   return (
-    <section id="home" className="min-h-screen relative z-0 overflow-hidden bg-[#030712] flex items-stretch">
+    <section id="home" className="min-h-screen relative z-0 overflow-hidden bg-[#030712] flex items-center pt-24 pb-16 md:py-32">
       {/* Background Blueprint Grid */}
-      <div className="absolute inset-0 z-0 opacity-[0.03]"
+      <div
+        className="absolute inset-0 z-0 opacity-[0.04] pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90px, #fff 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }}
       />
 
-      {/* Structural Elements */}
-      <div className="absolute left-[15%] top-0 bottom-0 w-[1px] bg-white/5 z-0" />
-      <div className="absolute left-0 right-0 top-[30%] h-[1px] bg-white/5 z-0" />
+      {/* Ambient Lighting Orbs */}
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-sky-500/10 blur-[130px] rounded-full pointer-events-none" />
 
-      {/* Main Content Grid */}
-      <div className="container relative z-10 flex flex-col md:flex-row items-stretch min-h-screen">
-        {/* Left column: Vertical spacer (previously had text) */}
-        <div className="hidden md:flex w-[15%] flex-col justify-end pb-24 border-r border-white/5" />
+      {/* Main Content Container */}
+      <div className="container relative z-10 px-4 md:px-6">
+        <div className="max-w-4xl mx-auto space-y-10">
+          
+          {/* Status Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-wrap items-center gap-3"
+          >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md">
+              <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">
+                Available for Senior Roles & Consulting
+              </span>
+            </div>
+            <span className="hidden sm:inline-block text-white/30 text-xs font-mono">
+              • Yoseph Ashenafi
+            </span>
+          </motion.div>
 
-        {/* Right column: The Workspace */}
-        <div className="flex-1 pt-32 md:pt-48 pb-16 md:pb-24 px-6 md:pl-16 flex flex-col justify-between">
-          <div className="space-y-8 md:space-y-12">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6 md:mb-8">
-                <p className="text-emerald-400 font-bold tracking-[0.3em] md:tracking-[0.4em] uppercase text-[10px] md:text-xs whitespace-nowrap">Yoseph Ashenafi • SWE</p>
-                <div className="flex items-center gap-2 px-3 py-1 glass rounded-full border border-white/10 w-fit">
-                  <span className="size-1 w-1 md:size-1.5 md:w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-[8px] md:text-[10px] font-bold text-white/60 uppercase tracking-widest">Available for new projects</span>
-                </div>
+          {/* Hero Main Headline */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="space-y-4"
+          >
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.08] text-white">
+              Software Architect & <br className="hidden sm:inline" />
+              <span className="text-reveal">Fullstack Engineer.</span>
+            </h1>
+
+            <p className="text-white/60 text-base md:text-xl font-light leading-relaxed max-w-2xl pt-2">
+              Engineering resilient, cloud-native applications and scalable backend architectures. Transforming complex business logic into intuitive, high-performance web experiences.
+            </p>
+          </motion.div>
+
+          {/* Stats Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="grid grid-cols-3 gap-4 pt-4 border-y border-white/10 py-6 max-w-2xl"
+          >
+            {metrics.map((m, idx) => (
+              <div key={idx} className="space-y-1">
+                <p className="text-2xl md:text-4xl font-extrabold text-emerald-400 tracking-tight">{m.value}</p>
+                <p className="text-[10px] md:text-xs text-white/50 uppercase tracking-wider font-semibold">{m.label}</p>
               </div>
+            ))}
+          </motion.div>
 
-              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-none md:leading-tight">
-                <span className="text-white">Software Dev </span><br />
-              </h1>
-            </motion.div>
+          {/* Action CTAs & Profile Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4"
+          >
+            <Link href="#projects" className="flex-1 sm:flex-none">
+              <button className="w-full sm:w-auto px-8 py-4 bg-emerald-400 text-black font-extrabold rounded-2xl hover:bg-emerald-300 transition-all duration-300 active:scale-95 uppercase tracking-widest text-xs shadow-[0_0_30px_rgba(52,211,153,0.3)] flex items-center justify-center gap-2">
+                <Code2 className="size-4" />
+                EXPLORE PROJECTS
+              </button>
+            </Link>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="text-white/40 text-base md:text-xl font-light max-w-2xl leading-relaxed"
-            >
-              Senior Software Engineer specializing in <span className="text-white/80">fullstack applications</span> and <span className="text-white/80">large-scale backend architectures</span>.
-              Engineering resilient SaaS ecosystems that bridge the gap between complex engineering and seamless user experiences.
-            </motion.p>
-          </div>
+            <Link href="/resume" className="flex-1 sm:flex-none">
+              <button className="w-full sm:w-auto px-8 py-4 glass border border-white/10 text-white font-extrabold rounded-2xl hover:bg-white/10 transition-all duration-300 active:scale-95 uppercase tracking-widest text-xs flex items-center justify-center gap-2">
+                <ArrowDown className="size-4 text-emerald-400" />
+                VIEW RESUME
+              </button>
+            </Link>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-16 md:mt-24">
-            {/* Status Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.2 }}
-              className="glass p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-white/5 flex items-center gap-4 md:gap-6"
-            >
+            {/* Profile Avatar Card */}
+            <div className="sm:ml-auto flex items-center gap-3.5 p-2 px-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
               <div className="relative">
-                <div className="absolute -inset-2 bg-emerald-500/20 blur-xl rounded-full opacity-50" />
+                <div className="absolute -inset-1 bg-emerald-500/30 blur-md rounded-full" />
                 <Image
                   src={memojiImage}
-                  alt="Yoseph"
-                  className="relative size-14 md:size-20 rounded-full border border-white/10"
+                  alt="Yoseph Ashenafi"
+                  className="relative size-11 rounded-full border border-white/20 object-cover"
                 />
               </div>
-              <div>
-                <p className="text-white font-bold text-base md:text-lg">Yoseph Ashenafi</p>
-                <div className="flex items-center gap-2 mt-0.5 md:mt-1">
-                  <span className="size-1 md:size-1.5 rounded-full bg-emerald-500" />
-                  <p className="text-white/40 text-[10px] md:text-xs font-semibold uppercase tracking-widest">Senior Fullstack Developer</p>
-                </div>
+              <div className="text-left">
+                <p className="text-xs font-bold text-white leading-tight">Yoseph Ashenafi</p>
+                <p className="text-[10px] text-emerald-400 font-mono">SWE / Fullstack</p>
               </div>
-            </motion.div>
+            </div>
+          </motion.div>
 
-            {/* Actions */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.4 }}
-              className="flex flex-col sm:flex-row items-center gap-4"
-            >
-              <Link href="#projects" className="w-full sm:flex-1">
-                <button className="w-full h-16 md:h-20 bg-white text-black font-bold rounded-[1.5rem] md:rounded-[2rem] hover:bg-emerald-400 transition-all active:scale-95 uppercase tracking-widest text-[10px] md:text-xs">
-                  VIEW PROJECTS
-                </button>
-              </Link>
-              <Link href="/resume.pdf" download className="w-full sm:flex-1">
-                <button className="w-full h-16 md:h-20 glass border border-white/10 text-white font-bold rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center gap-2 md:gap-3 group hover:bg-white/5 transition-all uppercase tracking-widest text-[10px] md:text-xs">
-                  RESUME
-                  <ArrowDown className="size-3 md:size-4 group-hover:translate-y-1 transition-transform" />
-                </button>
-              </Link>
-            </motion.div>
-          </div>
         </div>
       </div>
     </section>
   );
 };
+

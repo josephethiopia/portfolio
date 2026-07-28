@@ -116,7 +116,7 @@ export default function CustomCursor() {
       />
       <div
         ref={cursorFollowerRef}
-        className="hidden md:block fixed w-10 h-10 border border-emerald-400/20 rounded-full pointer-events-none z-[99] opacity-30 transition-[transform,opacity] duration-[0.6s] ease-[cubic-bezier(0.75,-1.27,0.3,2.33)]"
+        className="hidden md:block fixed w-10 h-10 border border-emerald-400/20 rounded-full pointer-events-none z-[99] opacity-30 transition-all duration-500 ease-out"
       />
     </>
   );
