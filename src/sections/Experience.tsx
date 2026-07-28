@@ -27,7 +27,7 @@ export const Experience = () => {
 
   const timelineData = [
     {
-      title: "2026 - Present",
+      title: "2025 - Present",
       content: (
         <div className="space-y-4 p-6 rounded-2xl glass-card">
           <div className="flex items-center gap-3">
@@ -70,6 +70,32 @@ export const Experience = () => {
           </p>
           <div className="flex flex-wrap gap-2 pt-2">
             {["Telegram WebApp API", "React", "Node.js", "Tailwind CSS"].map((skill) => (
+              <span key={skill} className="px-2.5 py-1 text-[10px] font-medium bg-white/5 border border-white/10 rounded-full text-white/70">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "2022 - 2025",
+      content: (
+        <div className="space-y-4 p-6 rounded-2xl glass-card">
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <Briefcase className="size-5" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white tracking-tight">Freelance Software Engineer</h3>
+              <p className="text-xs text-emerald-400 font-mono">DNT Services & Remote Companies</p>
+            </div>
+          </div>
+          <p className="text-white/60 font-light text-sm leading-relaxed">
+            Worked remotely building custom web applications, client dashboards, and frontend interfaces for DNT Services and international companies.
+          </p>
+          <div className="flex flex-wrap gap-2 pt-2">
+            {["React", "JavaScript", "TypeScript", "Node.js", "Web Apps"].map((skill) => (
               <span key={skill} className="px-2.5 py-1 text-[10px] font-medium bg-white/5 border border-white/10 rounded-full text-white/70">
                 {skill}
               </span>

@@ -82,13 +82,14 @@ export const ContactSection = () => {
               <Github className="size-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://t.me/joaccount"
               target="_blank"
               rel="noreferrer"
-              className="p-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all"
-              aria-label="LinkedIn Profile"
+              className="p-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all flex items-center gap-2 px-4"
+              aria-label="Telegram Profile"
             >
-              <Linkedin className="size-5" />
+              <Send className="size-5 text-emerald-400" />
+              <span className="text-xs font-mono font-bold text-white">@joaccount</span>
             </a>
             <a
               href={`mailto:${email}`}

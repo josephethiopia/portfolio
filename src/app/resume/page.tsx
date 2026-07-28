@@ -73,6 +73,11 @@ export default function ResumePage() {
                 <span className="print:font-semibold">GitHub:</span>
                 <span>github.com/josephethropia</span>
               </div>
+              <div className="flex items-center gap-1.5">
+                <Send className="size-3.5 text-emerald-400 print:hidden" />
+                <span className="print:font-semibold">Telegram:</span>
+                <a href={personal.telegram} target="_blank" rel="noreferrer" className="hover:underline text-emerald-400 print:text-slate-900 font-bold">@joaccount</a>
+              </div>
             </div>
           </div>
 

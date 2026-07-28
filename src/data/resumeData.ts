@@ -7,7 +7,7 @@ export interface ResumeData {
     location: string;
     website: string;
     github: string;
-    linkedin: string;
+    linkedin?: string;
     telegram: string;
     summary: string;
   };
@@ -45,7 +45,6 @@ export const resumeData: ResumeData = {
     location: "Addis Ababa, Ethiopia (Remote / Relocation)",
     website: "https://github.com/josephethropia",
     github: "https://github.com/josephethropia",
-    linkedin: "https://www.linkedin.com/in/yoseph-ashenafi-750346262",
     telegram: "https://t.me/joaccount",
     summary:
       "Software Engineer specializing in Web and Mobile applications (Next.js, React Native / Expo, Node.js, and Telegram Mini Apps). B.Sc. in Infrastructure Management from Addis Ababa University (Graduating Class 2026)."
@@ -76,13 +75,13 @@ export const resumeData: ResumeData = {
       location: "Remote",
       period: "2025 – Present",
       highlights: [
-        "Building production web applications and APIs for clients using Next.js, Node.js, and TypeScript.",
+        "Building production web applications, backend APIs, and Expo mobile apps for clients.",
         "Engineered Telegram Mini Apps including Lehulum Exams (`@lehulum_exams_bot`), combining WebApp interfaces, quiz scoring logic, and bot handlers.",
         "Set up Docker containers and API routes for reliable client data delivery."
       ]
     },
     {
-      role: "Fullstack Developer",
+      role: "Web & Mobile Developer",
       company: "Lehulum Exams",
       location: "Addis Ababa, Ethiopia",
       period: "2025 – 2026",
@@ -90,6 +89,16 @@ export const resumeData: ResumeData = {
         "Built the Lehulum Exams Telegram Mini App (`@lehulum_exams_bot`) for student national exam preparation.",
         "Created interactive exam simulators, quiz scoring algorithms, and student study modules inside Telegram.",
         "Optimized mobile frontend speed for smooth performance on cellular networks."
+      ]
+    },
+    {
+      role: "Freelance Software Engineer",
+      company: "DNT Services & Remote Companies",
+      location: "Remote",
+      period: "2022 – 2025",
+      highlights: [
+        "Worked remotely building custom web applications, client portals, and user interfaces for DNT Services and global companies.",
+        "Collaborated with remote product teams to deliver responsive features using React, JavaScript, and Node.js."
       ]
     }
   ],
