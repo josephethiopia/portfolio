@@ -72,45 +72,33 @@ export const ContactSection = () => {
           </div>
 
           {/* Social Platforms Icons */}
-          <div className="pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+          <div className="pt-8 border-t border-white/10 flex items-center justify-center gap-4">
             <a
               href="https://github.com/josephethropia"
               target="_blank"
               rel="noreferrer"
-              className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all flex items-center gap-2"
+              className="p-4 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all hover:scale-110 active:scale-95"
               aria-label="GitHub Profile"
             >
-              <Github className="size-5 text-emerald-400" />
-              <span className="text-xs font-mono font-bold text-white">GitHub</span>
+              <Github className="size-6 text-emerald-400" />
             </a>
 
             <a
               href="https://t.me/joaccount"
               target="_blank"
               rel="noreferrer"
-              className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all flex items-center gap-2"
+              className="p-4 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all hover:scale-110 active:scale-95"
               aria-label="Telegram Profile"
             >
-              <Send className="size-5 text-emerald-400" />
-              <span className="text-xs font-mono font-bold text-white">Telegram</span>
+              <Send className="size-6 text-emerald-400" />
             </a>
 
             <a
               href={`mailto:${email}`}
-              className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all flex items-center gap-2"
+              className="p-4 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all hover:scale-110 active:scale-95"
               aria-label="Email Direct"
             >
-              <Mail className="size-5 text-emerald-400" />
-              <span className="text-xs font-mono font-bold text-white">Email</span>
-            </a>
-
-            <a
-              href={`tel:${phone}`}
-              className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-white/70 hover:text-emerald-400 hover:border-emerald-500/40 transition-all flex items-center gap-2"
-              aria-label="Phone Call"
-            >
-              <Phone className="size-5 text-emerald-400" />
-              <span className="text-xs font-mono font-bold text-white">Phone</span>
+              <Mail className="size-6 text-emerald-400" />
             </a>
           </div>
         </motion.div>
