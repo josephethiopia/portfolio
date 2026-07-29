@@ -77,26 +77,33 @@ export default function CustomCursor() {
     };
 
     // Event listeners
-    document.addEventListener("mousemove", handleMouseMove);
-    document.body.style.cursor = "none";
+    const isFinePointer = window.matchMedia("(pointer: fine)").matches;
+    if (isFinePointer) {
+      document.addEventListener("mousemove", handleMouseMove);
+      document.body.style.cursor = "none";
+    }
 
     // Initialize interactive elements
     const elements = document.querySelectorAll("a, button, [data-cursor-hover]");
     (interactiveElements as any).current = elements;
-    elements.forEach((element) => {
-      if (element) {
-        element.addEventListener("mouseenter", handleMouseEnter);
-        element.addEventListener("mouseleave", handleMouseLeave);
-        element.addEventListener("click", handleClick);
-      }
-    });
+    if (isFinePointer) {
+      elements.forEach((element) => {
+        if (element) {
+          element.addEventListener("mouseenter", handleMouseEnter);
+          element.addEventListener("mouseleave", handleMouseLeave);
+          element.addEventListener("click", handleClick);
+        }
+      });
+    }
 
     // Cleanup
     return () => {
       ctx.revert();
       animation?.kill();
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.body.style.cursor = "auto";
+      if (isFinePointer) {
+        document.removeEventListener("mousemove", handleMouseMove);
+        document.body.style.cursor = "auto";
+      }
 
       // eslint-disable-next-line react-hooks/exhaustive-deps
       interactiveElements.current?.forEach((element) => {

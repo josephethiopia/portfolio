@@ -207,24 +207,26 @@ export function ProjectsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="flex flex-wrap items-center justify-center gap-2 pt-6"
+            className="w-full overflow-x-auto no-visible-scrollbar py-2"
           >
-            {categories.map((cat) => {
-              const isActive = activeCategory === cat;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 ${
-                    isActive
-                      ? "bg-emerald-400 text-black shadow-[0_0_20px_rgba(52,211,153,0.4)] scale-105"
-                      : "bg-white/5 text-white/60 hover:text-white hover:bg-white/10 border border-white/10"
-                  }`}
-                >
-                  {cat}
-                </button>
-              );
-            })}
+            <div className="flex items-center justify-start sm:justify-center gap-2 min-w-max px-2">
+              {categories.map((cat) => {
+                const isActive = activeCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    className={`px-4 sm:px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 whitespace-nowrap ${
+                      isActive
+                        ? "bg-emerald-400 text-black shadow-[0_0_20px_rgba(52,211,153,0.4)] scale-105"
+                        : "bg-white/5 text-white/60 hover:text-white hover:bg-white/10 border border-white/10"
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
           </motion.div>
         </div>
 
@@ -240,10 +242,10 @@ export function ProjectsSection() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 onClick={() => setSelectedProject(project)}
-                className="group relative cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-slate-950/60 backdrop-blur-xl hover:border-emerald-500/40 hover:shadow-[0_0_35px_rgba(16,185,129,0.15)] transition-all duration-500 flex flex-col h-[420px]"
+                className="group relative cursor-pointer overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-slate-950/60 backdrop-blur-xl hover:border-emerald-500/40 hover:shadow-[0_0_35px_rgba(16,185,129,0.15)] transition-all duration-500 flex flex-col h-auto min-h-[380px] sm:min-h-[420px]"
               >
                 {/* Project Banner & Thumbnail */}
-                <div className="relative h-56 w-full overflow-hidden bg-slate-900">
+                <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
                   <Image
                     src={project.image}
                     alt={project.name}
@@ -254,22 +256,22 @@ export function ProjectsSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
                   
                   {/* Top Badges */}
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                    <span className="px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest bg-black/60 backdrop-blur-md border border-white/10 text-emerald-400 rounded-full">
+                  <div className="absolute top-3 left-3 right-3 sm:top-4 sm:left-4 sm:right-4 flex items-center justify-between z-10">
+                    <span className="px-2.5 sm:px-3 py-1 text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest bg-black/60 backdrop-blur-md border border-white/10 text-emerald-400 rounded-full">
                       {project.location}
                     </span>
-                    <span className="px-3 py-1 text-[10px] font-semibold uppercase tracking-widest bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+                    <span className="px-2.5 sm:px-3 py-1 text-[9px] sm:text-[10px] font-semibold uppercase tracking-widest bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
                       {project.category}
                     </span>
                   </div>
                 </div>
 
                 {/* Content Box */}
-                <div className="p-6 flex-1 flex flex-col justify-between relative z-10 bg-slate-950/80">
+                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between relative z-10 bg-slate-950/80">
                   <div>
-                    <h3 className="text-xl md:text-2xl font-extrabold text-white group-hover:text-emerald-300 transition-colors tracking-tight flex items-center justify-between">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-extrabold text-white group-hover:text-emerald-300 transition-colors tracking-tight flex items-center justify-between">
                       <span>{project.name}</span>
-                      <ArrowUpRight className="size-5 text-white/30 group-hover:text-emerald-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                      <ArrowUpRight className="size-4 sm:size-5 text-white/30 group-hover:text-emerald-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                     </h3>
                     <p className="mt-2 text-xs md:text-sm text-white/60 font-light line-clamp-2 leading-relaxed">
                       {project.description}
@@ -281,13 +283,13 @@ export function ProjectsSection() {
                     {project.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-0.5 text-[10px] font-medium text-white/60 bg-white/5 rounded-md border border-white/5"
+                        className="px-2 py-0.5 text-[9px] sm:text-[10px] font-medium text-white/60 bg-white/5 rounded-md border border-white/5"
                       >
                         {tag}
                       </span>
                     ))}
                     {project.tags.length > 3 && (
-                      <span className="text-[10px] text-white/40 font-mono">
+                      <span className="text-[9px] sm:text-[10px] text-white/40 font-mono">
                         +{project.tags.length - 3}
                       </span>
                     )}
@@ -302,24 +304,24 @@ export function ProjectsSection() {
       {/* Project Detail Lightbox Modal */}
       <AnimatePresence>
         {selectedProject && (
-          <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 md:p-6 bg-black/80 backdrop-blur-xl">
+          <div className="fixed inset-0 z-[200] flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-xl">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl border border-white/10 bg-[#090d16] p-6 md:p-8 shadow-2xl shadow-emerald-500/10 no-visible-scrollbar"
+              className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-2xl sm:rounded-3xl border border-white/10 bg-[#090d16] p-4 sm:p-6 md:p-8 shadow-2xl shadow-emerald-500/10 no-visible-scrollbar"
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-6 right-6 p-2 rounded-full bg-white/10 text-white/70 hover:text-white hover:bg-white/20 transition-all z-20"
+                className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-full bg-black/60 sm:bg-white/10 text-white/80 hover:text-white hover:bg-white/20 transition-all z-20 backdrop-blur-md"
               >
                 <X className="size-5" />
               </button>
 
               {/* Modal Header */}
-              <div className="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden mb-6 bg-slate-900">
+              <div className="relative h-48 sm:h-64 md:h-80 w-full rounded-xl sm:rounded-2xl overflow-hidden mb-5 sm:mb-6 bg-slate-900">
                 <Image
                   src={selectedProject.image}
                   alt={selectedProject.name}
@@ -327,12 +329,12 @@ export function ProjectsSection() {
                   className="object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#090d16] via-transparent to-transparent opacity-90" />
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-center justify-between">
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">
+                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-400">
                       {selectedProject.location} • {selectedProject.category}
                     </span>
-                    <h3 className="text-3xl md:text-4xl font-extrabold text-white">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">
                       {selectedProject.name}
                     </h3>
                   </div>
@@ -340,12 +342,12 @@ export function ProjectsSection() {
               </div>
 
               {/* Modal Body */}
-              <div className="space-y-6 text-white/80">
+              <div className="space-y-5 sm:space-y-6 text-white/80">
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-2 flex items-center gap-2">
                     <Layers className="size-4 text-emerald-400" /> Executive Overview
                   </h4>
-                  <p className="text-sm md:text-base leading-relaxed text-white/70 font-light">
+                  <p className="text-xs sm:text-sm md:text-base leading-relaxed text-white/70 font-light">
                     {selectedProject.longDescription}
                   </p>
                 </div>
@@ -355,7 +357,7 @@ export function ProjectsSection() {
                   <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-3 flex items-center gap-2">
                     <Sparkles className="size-4 text-emerald-400" /> Key Architectural Highlights
                   </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
                     {selectedProject.highlights.map((item, idx) => (
                       <div key={idx} className="p-3 rounded-xl bg-white/5 border border-white/5 text-xs text-emerald-200 font-medium">
                         ✓ {item}
@@ -369,11 +371,11 @@ export function ProjectsSection() {
                   <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-3 flex items-center gap-2">
                     <Code2 className="size-4 text-emerald-400" /> Tech Stack & Tools
                   </h4>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {selectedProject.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3.5 py-1.5 text-xs font-semibold text-emerald-300 bg-emerald-500/10 rounded-full border border-emerald-500/20"
+                        className="px-3 py-1 text-[10px] sm:text-xs font-semibold text-emerald-300 bg-emerald-500/10 rounded-full border border-emerald-500/20"
                       >
                         {tag}
                       </span>
@@ -382,14 +384,14 @@ export function ProjectsSection() {
                 </div>
 
                 {/* Action Links */}
-                <div className="pt-6 border-t border-white/10 flex items-center justify-between">
+                <div className="pt-4 sm:pt-6 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                   <span className="text-xs text-white/40 flex items-center gap-1.5">
                     <Globe className="size-4 text-emerald-400" /> Live Deployment
                   </span>
                   <Link
                     href={selectedProject.link}
                     target="_blank"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-400 text-black font-bold text-xs uppercase tracking-widest rounded-full hover:bg-emerald-300 transition-all shadow-[0_0_20px_rgba(52,211,153,0.4)]"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-400 text-black font-bold text-xs uppercase tracking-widest rounded-full hover:bg-emerald-300 transition-all shadow-[0_0_20px_rgba(52,211,153,0.4)]"
                   >
                     VISIT PROJECT WEBSITE
                     <ExternalLink className="size-4" />

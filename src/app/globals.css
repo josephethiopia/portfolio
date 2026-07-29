@@ -69,10 +69,13 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-[#030712] text-white selection:bg-emerald-500/30 selection:text-emerald-200 antialiased;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .nav-items {
