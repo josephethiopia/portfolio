@@ -108,7 +108,7 @@ export const Experience = () => {
 
   return (
     <section id="experience" className="py-16 sm:py-24 md:py-36 bg-[#030712] relative overflow-hidden">
-      <div className="container px-4 sm:px-6 relative z-10">
+      <div className="container px-2 sm:px-6 relative z-10">
         <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4 mb-10 sm:mb-16">
           <p className="text-emerald-400 font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs">Career Timeline</p>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">

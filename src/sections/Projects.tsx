@@ -164,11 +164,11 @@ export function ProjectsSection() {
     : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-24 md:py-36 bg-[#030712] relative overflow-hidden">
+    <section id="projects" className="py-16 sm:py-24 md:py-36 bg-[#030712] relative overflow-hidden">
       {/* Background Ambient Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-emerald-500/5 blur-[140px] rounded-full pointer-events-none" />
 
-      <div className="container px-4 md:px-6 relative z-10">
+      <div className="container px-2 sm:px-6 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center space-y-4 mb-14">
           <motion.div

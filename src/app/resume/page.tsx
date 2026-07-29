@@ -15,7 +15,7 @@ export default function ResumePage() {
   const { personal, skills, experience, projects, education } = resumeData;
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-100 font-sans selection:bg-emerald-500/30 print:bg-white print:text-slate-900 py-4 sm:py-10 px-3 sm:px-6 md:px-8">
+    <div className="min-h-screen bg-[#030712] text-slate-100 font-sans selection:bg-emerald-500/30 print:bg-white print:text-slate-900 py-4 sm:py-10 px-2 sm:px-6 md:px-8">
       
       {/* Action Bar (Hidden when printing/exporting PDF) */}
       <div className="max-w-4xl mx-auto mb-4 sm:mb-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 print:hidden">

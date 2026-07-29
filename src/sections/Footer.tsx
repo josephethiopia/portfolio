@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ArrowUpRightIcon from "../../public/icons/arrow-up-right.svg";
 
 const footerLinks = [
   {
@@ -26,9 +25,9 @@ const footerLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="relative bg-[#030712] border-t border-white/5">
+    <footer className="relative bg-[#030712] border-t border-white/5 pb-8 sm:pb-12">
       <div className="container px-4 sm:px-6">
-        <div className="py-8 sm:py-12 flex flex-col md:flex-row md:justify-between items-center gap-6 sm:gap-8 text-center md:text-left">
+        <div className="py-8 sm:py-12 flex flex-col-reverse md:flex-row md:justify-between items-center gap-6 sm:gap-8 text-center md:text-left">
           <div className="text-white/30 text-[11px] sm:text-xs font-medium tracking-widest uppercase">
             &copy; {new Date().getFullYear()} Yoseph Ashenafi. All rights reserved.
           </div>
