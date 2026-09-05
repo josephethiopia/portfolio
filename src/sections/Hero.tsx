@@ -7,7 +7,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const metrics = [
-  { label: "Years Experience", value: "5+" },
+  { label: "Years Experience", value: "4+" },
   { label: "Projects Completed", value: "15+" },
   { label: "Main Stack", value: "Next.js / Node" },
 ];

@@ -169,4 +169,37 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(52, 211, 153, 0.5);
-}
+}
+
+/* Print Optimization for Minimalist Resume Export */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm 8mm 10mm;
+  }
+
+  *, *::before, *::after {
+    text-shadow: none !important;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 10.5pt;
+    line-height: 1.35;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .print-break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Force clean link styling in print */
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+}
+

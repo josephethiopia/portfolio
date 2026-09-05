@@ -79,6 +79,32 @@ export const Experience = () => {
       ),
     },
     {
+      title: "Summer 2024",
+      content: (
+        <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-2xl glass-card">
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20">
+              <Briefcase className="size-4 sm:size-5" />
+            </div>
+            <div>
+              <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">Backend & DB Lecturer / Mentor</h3>
+              <p className="text-[11px] sm:text-xs text-amber-400 font-mono">Google Developer Groups (GDG) — AAU</p>
+            </div>
+          </div>
+          <p className="text-white/60 font-light text-xs sm:text-sm leading-relaxed">
+            Lectured and mentored 120+ Computer Science and Software Development students at Addis Ababa University in backend architecture, REST APIs, and database systems during Summer 2024.
+          </p>
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1 sm:pt-2">
+            {["Node.js", "PostgreSQL", "Prisma ORM", "API Architecture", "Database Design"].map((skill) => (
+              <span key={skill} className="px-2 sm:px-2.5 py-1 text-[9px] sm:text-[10px] font-medium bg-white/5 border border-white/10 rounded-full text-white/70">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      ),
+    },
+    {
       title: "2022 - 2025",
       content: (
         <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-2xl glass-card">
