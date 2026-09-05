@@ -4,7 +4,17 @@ import { useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, X, Globe, Sparkles, Code2, ArrowUpRight, Layers } from "lucide-react";
+import {
+  ExternalLink,
+  X,
+  Globe,
+  Code2,
+  ArrowUpRight,
+  Layers,
+  Sparkles,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 import tigatImage from "../../public/images/tigat-new.png";
 import nileodeImage from "../../public/images/nileode-new.png";
@@ -35,13 +45,13 @@ const projects: Project[] = [
     id: "lehulum",
     name: "Lehulum Exams",
     category: "Social & NGO",
-    description: "Interactive Telegram Mini App for national exam prep, quizzes, and instant scoring analytics.",
+    description: "Interactive Telegram Mini App for national exam prep, timed quizzes, and instant scoring analytics.",
     longDescription: "Engineered a high-performing Telegram Mini App (@lehulum_exams_bot) tailored for students preparing for national exams. Built with seamless WebApp integration, instant quiz evaluation algorithms, streak tracking, and interactive study modules directly inside Telegram.",
     tags: ["Telegram Mini App", "Next.js", "TypeScript", "Node.js", "Bot API"],
     image: lehulumImage,
     link: "https://t.me/lehulum_exams_bot",
     location: "Ethiopia",
-    highlights: ["Built-in Telegram WebApp UX", "Instant Quiz Evaluation", "@lehulum_exams_bot Bot Integration"]
+    highlights: ["Built-in Telegram WebApp UX", "Instant Quiz Evaluation", "@lehulum_exams_bot Integration"]
   },
   {
     id: "servicenow",
@@ -80,18 +90,6 @@ const projects: Project[] = [
     highlights: ["Custom product story layout", "SEO score 98+", "Localized checkout flows"]
   },
   {
-    id: "mojo",
-    name: "The Mojo Effect",
-    category: "SaaS & Enterprise",
-    description: "Digital agency & creative product lab delivering high-impact brand strategies & tech solutions.",
-    longDescription: "Built a sleek, motion-rich digital platform highlighting portfolio showcases, client case studies, and interactive service proposal calculators for prospective partners.",
-    tags: ["Next.js", "GSAP", "Tailwind CSS", "TypeScript"],
-    image: MojoImage,
-    link: "https://themojoeffect.com/",
-    location: "USA",
-    highlights: ["60fps micro-animations", "Fluid page transitions", "Dynamic case study grid"]
-  },
-  {
     id: "huht",
     name: "HUHT Orphanage",
     category: "Social & NGO",
@@ -102,18 +100,6 @@ const projects: Project[] = [
     link: "https://huhtorphanage.com",
     location: "Canada",
     highlights: ["Child sponsorship manager", "Recurring donation engine", "Impact report portal"]
-  },
-  {
-    id: "dideco",
-    name: "Dideco North America",
-    category: "SaaS & Enterprise",
-    description: "B2B manufacturing directory and international industrial distribution network platform.",
-    longDescription: "Full-scale corporate website and product inquiry engine facilitating industrial equipment distribution, quote generation, and regional distributor mapping.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
-    image: DidecoImage,
-    link: "https://dideco.com",
-    location: "North America",
-    highlights: ["Multi-region product filtering", "Instant RFQ generator", "Responsive grid design"]
   },
   {
     id: "calmify",
@@ -140,6 +126,30 @@ const projects: Project[] = [
     highlights: ["Talent match algorithm", "Instant chat notifications", "Verified developer profiles"]
   },
   {
+    id: "mojo",
+    name: "The Mojo Effect",
+    category: "SaaS & Enterprise",
+    description: "Digital agency & creative product lab delivering high-impact brand strategies & tech solutions.",
+    longDescription: "Built a sleek, motion-rich digital platform highlighting portfolio showcases, client case studies, and interactive service proposal calculators for prospective partners.",
+    tags: ["Next.js", "GSAP", "Tailwind CSS", "TypeScript"],
+    image: MojoImage,
+    link: "https://themojoeffect.com/",
+    location: "USA",
+    highlights: ["60fps micro-animations", "Fluid page transitions", "Dynamic case study grid"]
+  },
+  {
+    id: "dideco",
+    name: "Dideco North America",
+    category: "SaaS & Enterprise",
+    description: "B2B manufacturing directory and international industrial distribution network platform.",
+    longDescription: "Full-scale corporate website and product inquiry engine facilitating industrial equipment distribution, quote generation, and regional distributor mapping.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
+    image: DidecoImage,
+    link: "https://dideco.com",
+    location: "North America",
+    highlights: ["Multi-region product filtering", "Instant RFQ generator", "Responsive grid design"]
+  },
+  {
     id: "nileode",
     name: "Nileode Technologies",
     category: "SaaS & Enterprise",
@@ -164,202 +174,177 @@ export function ProjectsSection() {
     : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-16 sm:py-24 md:py-36 bg-[#030712] relative overflow-hidden">
-      {/* Background Ambient Glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-emerald-500/5 blur-[140px] rounded-full pointer-events-none" />
+    <section id="projects" className="py-16 sm:py-24 border-t border-white/5 relative">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        {/* Minimal Section Header */}
+        <div className="space-y-4 mb-10">
+          <p className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400">
+            Selected Work
+          </p>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+              Featured Projects
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-400 max-w-md">
+              A curated collection of production web applications, enterprise portals, and Telegram Mini Apps.
+            </p>
+          </div>
 
-      <div className="container px-2 sm:px-6 relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center space-y-4 mb-14">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-emerald-400 backdrop-blur-md"
-          >
-            <Sparkles className="size-3.5" />
-            Curated Portfolio
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-extrabold tracking-tight text-white"
-          >
-            Featured <span className="text-reveal">Engineering Work.</span>
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="max-w-2xl text-white/50 text-base md:text-lg font-light leading-relaxed"
-          >
-            A curated showcase of production applications, enterprise portals, and cloud platforms engineered for real-world impact.
-          </motion.p>
-
-          {/* Filter Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="w-full overflow-x-auto no-visible-scrollbar py-2"
-          >
-            <div className="flex items-center justify-start sm:justify-center gap-2 min-w-max px-2">
-              {categories.map((cat) => {
-                const isActive = activeCategory === cat;
-                return (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveCategory(cat)}
-                    className={`px-4 sm:px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 whitespace-nowrap ${
-                      isActive
-                        ? "bg-emerald-400 text-black shadow-[0_0_20px_rgba(52,211,153,0.4)] scale-105"
-                        : "bg-white/5 text-white/60 hover:text-white hover:bg-white/10 border border-white/10"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                );
-              })}
-            </div>
-          </motion.div>
+          {/* Minimalist Filter Tabs */}
+          <div className="flex items-center gap-1.5 overflow-x-auto no-visible-scrollbar pt-3">
+            {categories.map((cat) => {
+              const isActive = activeCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap ${
+                    isActive
+                      ? "bg-white text-slate-950 font-bold shadow-sm"
+                      : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        {/* Projects Bento Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* 2-Column Responsive Project Grid */}
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 layout
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                transition={{ duration: 0.35, delay: index * 0.04 }}
                 onClick={() => setSelectedProject(project)}
-                className="group relative cursor-pointer overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-slate-950/60 backdrop-blur-xl hover:border-emerald-500/40 hover:shadow-[0_0_35px_rgba(16,185,129,0.15)] transition-all duration-500 flex flex-col h-auto min-h-[380px] sm:min-h-[420px]"
+                className="group cursor-pointer rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-emerald-500/30 transition-all duration-300 flex flex-col overflow-hidden"
               >
-                {/* Project Banner & Thumbnail */}
-                <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900">
+                {/* Image Banner */}
+                <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-slate-900">
                   <Image
                     src={project.image}
                     alt={project.name}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-top opacity-85 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-                  
-                  {/* Top Badges */}
-                  <div className="absolute top-3 left-3 right-3 sm:top-4 sm:left-4 sm:right-4 flex items-center justify-between z-10">
-                    <span className="px-2.5 sm:px-3 py-1 text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest bg-black/60 backdrop-blur-md border border-white/10 text-emerald-400 rounded-full">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent opacity-80" />
+
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                    <span className="px-2 py-0.5 text-[10px] font-mono font-medium rounded-md bg-black/60 backdrop-blur-md text-slate-300 border border-white/10">
                       {project.location}
                     </span>
-                    <span className="px-2.5 sm:px-3 py-1 text-[9px] sm:text-[10px] font-semibold uppercase tracking-widest bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+                    <span className="px-2 py-0.5 text-[10px] font-medium rounded-md bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">
                       {project.category}
                     </span>
                   </div>
                 </div>
 
-                {/* Content Box */}
-                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between relative z-10 bg-slate-950/80">
+                {/* Content */}
+                <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
                   <div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-extrabold text-white group-hover:text-emerald-300 transition-colors tracking-tight flex items-center justify-between">
-                      <span>{project.name}</span>
-                      <ArrowUpRight className="size-4 sm:size-5 text-white/30 group-hover:text-emerald-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                    </h3>
-                    <p className="mt-2 text-xs md:text-sm text-white/60 font-light line-clamp-2 leading-relaxed">
+                    <div className="flex items-center justify-between gap-2">
+                      <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">
+                        {project.name}
+                      </h3>
+                      <ArrowUpRight className="size-4 text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
+                    </div>
+                    <p className="text-xs text-slate-400 mt-1.5 line-clamp-2 leading-relaxed">
                       {project.description}
                     </p>
                   </div>
 
-                  {/* Tech Badges */}
-                  <div className="pt-4 border-t border-white/5 flex flex-wrap gap-1.5 items-center">
-                    {project.tags.slice(0, 3).map((tag) => (
+                  {/* Tech Tags */}
+                  <div className="pt-2 border-t border-white/5 flex flex-wrap gap-1.5 items-center">
+                    {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-0.5 text-[9px] sm:text-[10px] font-medium text-white/60 bg-white/5 rounded-md border border-white/5"
+                        className="px-2 py-0.5 text-[10px] font-mono text-slate-400 bg-white/5 rounded border border-white/5"
                       >
                         {tag}
                       </span>
                     ))}
-                    {project.tags.length > 3 && (
-                      <span className="text-[9px] sm:text-[10px] text-white/40 font-mono">
-                        +{project.tags.length - 3}
-                      </span>
-                    )}
                   </div>
                 </div>
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
+
       </div>
 
       {/* Project Detail Lightbox Modal */}
       <AnimatePresence>
         {selectedProject && (
-          <div className="fixed inset-0 z-[200] flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-xl">
+          <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ type: "spring", duration: 0.5 }}
-              className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-2xl sm:rounded-3xl border border-white/10 bg-[#090d16] p-4 sm:p-6 md:p-8 shadow-2xl shadow-emerald-500/10 no-visible-scrollbar"
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ type: "spring", duration: 0.4 }}
+              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl border border-white/10 bg-[#090d16] p-4 sm:p-7 shadow-2xl no-visible-scrollbar"
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-full bg-black/60 sm:bg-white/10 text-white/80 hover:text-white hover:bg-white/20 transition-all z-20 backdrop-blur-md"
+                aria-label="Close project modal"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full bg-black/70 hover:bg-black/90 text-white transition-all z-30 border border-white/15 backdrop-blur-md cursor-pointer"
               >
-                <X className="size-5" />
+                <X className="size-4" />
               </button>
 
-              {/* Modal Header */}
-              <div className="relative h-48 sm:h-64 md:h-80 w-full rounded-xl sm:rounded-2xl overflow-hidden mb-5 sm:mb-6 bg-slate-900">
+              {/* Modal Image Header */}
+              <div className="relative h-40 sm:h-56 w-full rounded-xl overflow-hidden mb-3 bg-slate-900 shrink-0">
                 <Image
                   src={selectedProject.image}
                   alt={selectedProject.name}
                   fill
                   className="object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#090d16] via-transparent to-transparent opacity-90" />
-                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-400">
-                      {selectedProject.location} • {selectedProject.category}
-                    </span>
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">
-                      {selectedProject.name}
-                    </h3>
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#090d16] via-transparent to-transparent" />
+              </div>
+
+              {/* Title & Category Header */}
+              <div className="space-y-1 mb-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20">
+                    {selectedProject.location}
+                  </span>
+                  <span className="text-[10px] font-mono text-slate-400 font-medium">
+                    {selectedProject.category}
+                  </span>
                 </div>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-white">
+                  {selectedProject.name}
+                </h3>
               </div>
 
               {/* Modal Body */}
-              <div className="space-y-5 sm:space-y-6 text-white/80">
+              <div className="space-y-4 text-slate-300 text-xs sm:text-sm">
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-2 flex items-center gap-2">
-                    <Layers className="size-4 text-emerald-400" /> Executive Overview
+                  <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-slate-400 mb-1.5">
+                    Overview
                   </h4>
-                  <p className="text-xs sm:text-sm md:text-base leading-relaxed text-white/70 font-light">
+                  <p className="leading-relaxed text-slate-300 font-light">
                     {selectedProject.longDescription}
                   </p>
                 </div>
 
-                {/* Key Highlights */}
+                {/* Highlights (Stacked 1-column on mobile, 3-column on desktop) */}
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-3 flex items-center gap-2">
-                    <Sparkles className="size-4 text-emerald-400" /> Key Architectural Highlights
+                  <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-slate-400 mb-2">
+                    Key Highlights
                   </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                     {selectedProject.highlights.map((item, idx) => (
-                      <div key={idx} className="p-3 rounded-xl bg-white/5 border border-white/5 text-xs text-emerald-200 font-medium">
+                      <div key={idx} className="p-2.5 rounded-lg bg-white/5 border border-white/5 text-xs text-emerald-300 font-medium">
                         ✓ {item}
                       </div>
                     ))}
@@ -368,33 +353,35 @@ export function ProjectsSection() {
 
                 {/* Tech Stack */}
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-3 flex items-center gap-2">
-                    <Code2 className="size-4 text-emerald-400" /> Tech Stack & Tools
+                  <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-slate-400 mb-2">
+                    Tech Stack
                   </h4>
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {selectedProject.tags.map((tag) => (
-                      <span
+                      <Badge
                         key={tag}
-                        className="px-3 py-1 text-[10px] sm:text-xs font-semibold text-emerald-300 bg-emerald-500/10 rounded-full border border-emerald-500/20"
+                        variant="emerald"
+                        className="text-[10px] font-mono"
                       >
                         {tag}
-                      </span>
+                      </Badge>
                     ))}
                   </div>
                 </div>
 
-                {/* Action Links */}
-                <div className="pt-4 sm:pt-6 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                  <span className="text-xs text-white/40 flex items-center gap-1.5">
-                    <Globe className="size-4 text-emerald-400" /> Live Deployment
+                {/* Action Links (Full-width touch button on mobile) */}
+                <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                  <span className="text-xs text-slate-400 flex items-center gap-1.5">
+                    <Globe className="size-3.5 text-emerald-400 shrink-0" />
+                    <span>Production Deployment</span>
                   </span>
                   <Link
                     href={selectedProject.link}
                     target="_blank"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-400 text-black font-bold text-xs uppercase tracking-widest rounded-full hover:bg-emerald-300 transition-all shadow-[0_0_20px_rgba(52,211,153,0.4)]"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-emerald-300 transition-all shadow-[0_0_15px_rgba(52,211,153,0.3)] w-full sm:w-auto"
                   >
-                    VISIT PROJECT WEBSITE
-                    <ExternalLink className="size-4" />
+                    <span>Visit Live Site</span>
+                    <ExternalLink className="size-3.5" />
                   </Link>
                 </div>
               </div>
@@ -405,5 +392,3 @@ export function ProjectsSection() {
     </section>
   );
 }
-
-

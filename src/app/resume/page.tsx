@@ -51,60 +51,88 @@ export default function ResumePage() {
     <div className="min-h-screen bg-[#030712] text-slate-100 font-sans selection:bg-emerald-500/30 py-4 sm:py-8 md:py-12 px-2 sm:px-4 md:px-8 print:p-0 print:bg-white print:text-slate-900">
       
       {/* Top Action Bar (Screen Only - Hidden when printing or exporting PDF) */}
-      <div className="max-w-4xl mx-auto mb-4 sm:mb-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 print:hidden">
-        <Link
-          href="/"
-          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white text-xs font-semibold tracking-wide transition-all border border-white/10 active:scale-95"
-        >
-          <ArrowLeft className="size-4 text-emerald-400 shrink-0" />
-          <span>Back to Portfolio</span>
-        </Link>
+      <div className="max-w-4xl mx-auto mb-3 sm:mb-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-3 print:hidden">
+        {/* Row 1 on Mobile: Back Link + Utility Buttons */}
+        <div className="flex items-center justify-between gap-2 w-full sm:w-auto">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white text-xs font-semibold tracking-wide transition-all border border-white/10 active:scale-95"
+          >
+            <ArrowLeft className="size-4 text-emerald-400 shrink-0" />
+            <span>Back to Portfolio</span>
+          </Link>
 
-        <div className="flex flex-wrap items-center gap-2">
-          {/* Real Dark Mode / Paper Preview Toggle */}
+          {/* Mobile-only utilities (Dark mode & Copy email) */}
+          <div className="flex items-center gap-1.5 sm:hidden">
+            <button
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              title={isDarkMode ? "Switch to Paper View" : "Switch to Dark View"}
+              aria-label="Toggle dark/paper view"
+              className="size-9 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 flex items-center justify-center border border-white/10 transition-all active:scale-95 cursor-pointer"
+            >
+              {isDarkMode ? (
+                <Sun className="size-4 text-amber-400" />
+              ) : (
+                <Moon className="size-4 text-sky-400" />
+              )}
+            </button>
+
+            <button
+              onClick={copyEmail}
+              title="Copy Email"
+              aria-label="Copy Email"
+              className="size-9 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 flex items-center justify-center border border-white/10 transition-all active:scale-95 cursor-pointer"
+            >
+              {copiedEmail ? <Check className="size-4 text-emerald-400" /> : <Copy className="size-4" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Row 2 on Mobile (50/50 Grid), Single Row on Desktop */}
+        <div className="grid grid-cols-2 sm:flex sm:items-center gap-2 sm:gap-2.5 w-full sm:w-auto">
+          {/* Desktop-only utilities */}
           <button
             onClick={() => setIsDarkMode(!isDarkMode)}
             title={isDarkMode ? "Switch to Paper View (Print Preview)" : "Switch to Real Dark Mode View"}
-            className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-medium border border-white/10 transition-all active:scale-95 cursor-pointer"
+            className="hidden sm:inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-medium border border-white/10 transition-all active:scale-95 cursor-pointer"
           >
             {isDarkMode ? (
               <>
                 <Sun className="size-4 text-amber-400" />
-                <span className="hidden sm:inline">Paper View</span>
+                <span>Paper View</span>
               </>
             ) : (
               <>
                 <Moon className="size-4 text-sky-400" />
-                <span className="hidden sm:inline">Dark View</span>
+                <span>Dark View</span>
               </>
             )}
           </button>
 
-          {/* Quick Copy Email */}
           <button
             onClick={copyEmail}
-            className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-medium border border-white/10 transition-all active:scale-95 cursor-pointer"
+            className="hidden sm:inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-medium border border-white/10 transition-all active:scale-95 cursor-pointer"
           >
             {copiedEmail ? <Check className="size-4 text-emerald-400" /> : <Copy className="size-4" />}
-            <span className="hidden sm:inline">{copiedEmail ? "Copied!" : "Copy Email"}</span>
+            <span>{copiedEmail ? "Copied!" : "Copy Email"}</span>
           </button>
 
-          {/* Separate Print Button */}
+          {/* Print CV Button (50% on mobile, auto on desktop) */}
           <button
             onClick={handlePrint}
             title="Open browser print dialog"
-            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-bold uppercase tracking-wider transition-all border border-white/15 active:scale-95 cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-bold uppercase tracking-wider transition-all border border-white/15 active:scale-95 cursor-pointer w-full sm:w-auto"
           >
             <Printer className="size-4 text-emerald-400 shrink-0" />
             <span>Print CV</span>
           </button>
 
-          {/* Separate Download PDF Button (Direct file download named Yoseph_Ashenafi_Resume.pdf) */}
+          {/* Download PDF Button (50% on mobile, auto on desktop) */}
           <a
             href="/Yoseph_Ashenafi_Resume.pdf"
             download="Yoseph_Ashenafi_Resume.pdf"
             title="Download Yoseph_Ashenafi_Resume.pdf"
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-400 text-slate-950 text-xs font-extrabold uppercase tracking-wider hover:bg-emerald-300 transition-all shadow-[0_0_20px_rgba(52,211,153,0.35)] active:scale-95 cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 px-3 sm:px-5 py-2.5 rounded-xl bg-emerald-400 text-slate-950 text-xs font-extrabold uppercase tracking-wider hover:bg-emerald-300 transition-all shadow-[0_0_20px_rgba(52,211,153,0.35)] active:scale-95 cursor-pointer w-full sm:w-auto"
           >
             <Download className="size-4 shrink-0" />
             <span>Download PDF</span>
@@ -113,16 +141,16 @@ export default function ResumePage() {
       </div>
 
       {/* Screen Helper Note */}
-      <div className="max-w-4xl mx-auto mb-4 text-center print:hidden">
-        <p className="text-[11px] text-slate-400 flex items-center justify-center gap-1.5 font-light">
-          <Sparkles className="size-3 text-emerald-400" />
-          <span>Click <strong>Download PDF</strong> to instantly download <code className="text-emerald-300 bg-white/5 px-1.5 py-0.5 rounded font-mono">Yoseph_Ashenafi_Resume.pdf</code> or click <strong>Print CV</strong> to print.</span>
+      <div className="max-w-4xl mx-auto mb-3.5 text-center print:hidden px-2">
+        <p className="text-[11px] text-slate-400 flex items-center justify-center gap-1.5 font-light leading-relaxed">
+          <Sparkles className="size-3 text-emerald-400 shrink-0" />
+          <span>Click <strong>Download PDF</strong> for instant file or <strong>Print CV</strong> to preview/print.</span>
         </p>
       </div>
 
       {/* The Printable Minimalist CV Sheet */}
       <div
-        className={`w-full max-w-4xl mx-auto rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-12 transition-all duration-300 print:max-w-none print:w-full print:p-0 print:border-none print:shadow-none print:rounded-none ${
+        className={`w-full max-w-4xl mx-auto rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-12 transition-all duration-300 print:max-w-none print:w-full print:p-0 print:border-none print:shadow-none print:rounded-none ${
           isDarkMode
             ? "bg-[#090d16] text-slate-100 border border-slate-800 shadow-[0_0_50px_rgba(16,185,129,0.08)]"
             : "bg-white text-slate-900 border border-slate-200/90 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]"
@@ -166,20 +194,20 @@ export default function ResumePage() {
             </div>
           </div>
 
-          {/* Contact Bar with Active Clickable Links for PDF */}
+          {/* Contact Bar with Active Clickable Links for PDF (Responsive Grid on Mobile, Flex on Tablet/Desktop) */}
           <div
-            className={`pt-2 border-t flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs ${
+            className={`pt-2 border-t grid grid-cols-1 sm:grid-cols-2 md:flex md:flex-wrap items-center gap-2 sm:gap-x-4 sm:gap-y-1.5 text-xs ${
               isDarkMode ? "border-slate-800/80 text-slate-300" : "border-slate-100 text-slate-600"
             } print:!border-slate-200 print:!text-slate-800`}
           >
             <a
               href={`mailto:${personal.email}`}
-              className={`inline-flex items-center gap-1.5 transition-colors ${
+              className={`inline-flex items-center gap-1.5 transition-colors truncate ${
                 isDarkMode ? "hover:text-emerald-400" : "hover:text-emerald-700"
               }`}
             >
               <Mail className={`size-3.5 shrink-0 ${isDarkMode ? "text-emerald-400" : "text-slate-400"} print:!text-slate-600`} />
-              <span>{personal.email}</span>
+              <span className="truncate">{personal.email}</span>
             </a>
 
             <a
@@ -196,12 +224,12 @@ export default function ResumePage() {
               href={personal.github}
               target="_blank"
               rel="noreferrer"
-              className={`inline-flex items-center gap-1.5 transition-colors ${
+              className={`inline-flex items-center gap-1.5 transition-colors truncate ${
                 isDarkMode ? "hover:text-emerald-400" : "hover:text-emerald-700"
               }`}
             >
               <Github className={`size-3.5 shrink-0 ${isDarkMode ? "text-emerald-400" : "text-slate-400"} print:!text-slate-600`} />
-              <span className="font-mono text-[11px]">github.com/josephethropia</span>
+              <span className="font-mono text-[11px] truncate">github.com/josephethropia</span>
             </a>
 
             <a
@@ -520,8 +548,8 @@ export default function ResumePage() {
               </span>
             </div>
 
-            {/* 2-Column Responsive Grid across Full Width */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 print:grid-cols-2 print:gap-3">
+            {/* Responsive Grid across Full Width (1 col mobile, 2 col desktop) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 print:grid-cols-2 print:gap-3">
               {projects.map((proj, idx) => (
                 <div
                   key={idx}

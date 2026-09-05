@@ -1,170 +1,167 @@
 "use client";
 
-import { Timeline } from "@/components/ui/timeline";
-import {
-  IconBrandNextjs,
-  IconBrandTypescript,
-  IconBrandJavascript,
-  IconBrandReact,
-  IconBrandNodejs,
-  IconBrandDocker,
-  IconBrandTailwind,
-  IconBrandMongodb,
-  IconBrandPrisma,
-} from "@tabler/icons-react";
 import { motion } from "framer-motion";
-import { Briefcase, Calendar } from "lucide-react";
+import { Briefcase, Calendar, MapPin } from "lucide-react";
+
+interface ExperienceItem {
+  period: string;
+  role: string;
+  company: string;
+  location: string;
+  description: string;
+  highlights: string[];
+  skills: string[];
+}
+
+const experiences: ExperienceItem[] = [
+  {
+    period: "2025 – Present",
+    role: "Software Engineer",
+    company: "Independent Consultant",
+    location: "Remote",
+    description:
+      "Architecting and shipping production web applications, backend APIs, and cross-platform mobile apps for international clients.",
+    highlights: [
+      "Engineered Telegram Mini Apps featuring seamless WebApp state sync, automated bot commands, and low-latency API handlers.",
+      "Containerized microservices with Docker and configured Linux environments for reliable, zero-downtime client deployments.",
+      "Consulted directly with founders to translate business requirements into clean, scalable software architectures."
+    ],
+    skills: ["Next.js", "TypeScript", "React Native / Expo", "Telegram Mini Apps", "Node.js", "Docker"]
+  },
+  {
+    period: "2025 – 2026",
+    role: "Web & Mobile Developer",
+    company: "Lehulum Exams Ecosystem (@lehulum_exams_bot)",
+    location: "Addis Ababa, Ethiopia",
+    description:
+      "Built and deployed the Lehulum Exams Telegram Mini App used by national exam students across Ethiopia.",
+    highlights: [
+      "Engineered instant quiz evaluation algorithms, timed exam simulators, and daily streak tracking directly inside Telegram.",
+      "Optimized mobile frontend speed and asset delivery for smooth operation even on low-bandwidth 3G and 4G networks."
+    ],
+    skills: ["Telegram WebApp API", "React", "TypeScript", "Node.js", "Tailwind CSS"]
+  },
+  {
+    period: "Summer 2024",
+    role: "Backend & DB Lecturer / Mentor",
+    company: "Google Developer Groups (GDG) on Campus — AAU",
+    location: "Addis Ababa, Ethiopia",
+    description:
+      "Taught and mentored 120+ Computer Science and Software Development students at Addis Ababa University in backend architecture and database systems.",
+    highlights: [
+      "Delivered hands-on technical workshops covering Node.js, Express, PostgreSQL, Prisma ORM, and database normalization principles.",
+      "Guided student engineering teams in building production-ready REST APIs, implementing secure authentication, and writing optimized SQL queries."
+    ],
+    skills: ["Node.js", "PostgreSQL", "Prisma ORM", "API Architecture", "Database Design"]
+  },
+  {
+    period: "2022 – 2025",
+    role: "Freelance Software Engineer",
+    company: "DNT Services & Remote Companies",
+    location: "Remote (US & Canada)",
+    description:
+      "Built responsive client portals, corporate dashboards, and enterprise integration tools for international businesses.",
+    highlights: [
+      "Engineered real-time data visualization platforms (Whalers App) handling live cryptocurrency transactions via WebSockets.",
+      "Integrated third-party services including Stripe payment gateways, OAuth authentication, and external webhook pipelines."
+    ],
+    skills: ["React", "JavaScript", "TypeScript", "Node.js", "WebSockets"]
+  },
+  {
+    period: "2023 – 2027 (Expected)",
+    role: "B.Sc. in Infrastructure Management (CoTM)",
+    company: "Addis Ababa University (AAU)",
+    location: "Addis Ababa, Ethiopia",
+    description:
+      "Engineering degree specializing in Construction Technology & Management (CoTM), infrastructure systems, and digital modeling.",
+    highlights: [
+      "Rigorous engineering coursework covering engineering mathematics, systems modeling, structural concepts, and project scheduling.",
+      "GDG on Campus student mentor and campus tech community contributor."
+    ],
+    skills: ["Infrastructure Systems", "Project Management", "Data Modeling", "Systems Engineering"]
+  }
+];
 
 export const Experience = () => {
-  const techSkills = [
-    { name: "Next.js 14", logo: <IconBrandNextjs size={48} stroke={1.5} /> },
-    { name: "TypeScript", logo: <IconBrandTypescript size={48} stroke={1.5} /> },
-    { name: "React", logo: <IconBrandReact size={48} stroke={1.5} /> },
-    { name: "Node.js", logo: <IconBrandNodejs size={48} stroke={1.5} /> },
-    { name: "Docker", logo: <IconBrandDocker size={48} stroke={1.5} /> },
-    { name: "Tailwind CSS", logo: <IconBrandTailwind size={48} stroke={1.5} /> },
-  ];
-
-  const timelineData = [
-    {
-      title: "2025 - Present",
-      content: (
-        <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-2xl glass-card">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-              <Briefcase className="size-4 sm:size-5" />
-            </div>
-            <div>
-              <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">Software Engineer</h3>
-              <p className="text-[11px] sm:text-xs text-emerald-400 font-mono">Independent Consultant</p>
-            </div>
-          </div>
-          <p className="text-white/60 font-light text-xs sm:text-sm leading-relaxed">
-            Building web applications, backend APIs, Expo Android apps, and Telegram Mini Apps for clients.
-          </p>
-          <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1 sm:pt-2">
-            {["Next.js", "TypeScript", "React Native / Expo", "Telegram Mini Apps", "Node.js", "Docker"].map((skill) => (
-              <span key={skill} className="px-2 sm:px-2.5 py-1 text-[9px] sm:text-[10px] font-medium bg-white/5 border border-white/10 rounded-full text-white/70">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-      ),
-    },
-    {
-      title: "2025 - 2026",
-      content: (
-        <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-2xl glass-card">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-sky-500/10 text-sky-400 border border-sky-500/20">
-              <Briefcase className="size-4 sm:size-5" />
-            </div>
-            <div>
-              <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">Web & Mobile Developer</h3>
-              <p className="text-[11px] sm:text-xs text-sky-400 font-mono">Lehulum Exams Ecosystem (@lehulum_exams_bot)</p>
-            </div>
-          </div>
-          <p className="text-white/60 font-light text-xs sm:text-sm leading-relaxed">
-            Engineered the Lehulum Exams Telegram Mini App for national exam preparation with instant quiz evaluation and streak tracking.
-          </p>
-          <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1 sm:pt-2">
-            {["Telegram WebApp API", "React", "Node.js", "Tailwind CSS"].map((skill) => (
-              <span key={skill} className="px-2 sm:px-2.5 py-1 text-[9px] sm:text-[10px] font-medium bg-white/5 border border-white/10 rounded-full text-white/70">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-      ),
-    },
-    {
-      title: "Summer 2024",
-      content: (
-        <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-2xl glass-card">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20">
-              <Briefcase className="size-4 sm:size-5" />
-            </div>
-            <div>
-              <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">Backend & DB Lecturer / Mentor</h3>
-              <p className="text-[11px] sm:text-xs text-amber-400 font-mono">Google Developer Groups (GDG) — AAU</p>
-            </div>
-          </div>
-          <p className="text-white/60 font-light text-xs sm:text-sm leading-relaxed">
-            Lectured and mentored 120+ Computer Science and Software Development students at Addis Ababa University in backend architecture, REST APIs, and database systems during Summer 2024.
-          </p>
-          <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1 sm:pt-2">
-            {["Node.js", "PostgreSQL", "Prisma ORM", "API Architecture", "Database Design"].map((skill) => (
-              <span key={skill} className="px-2 sm:px-2.5 py-1 text-[9px] sm:text-[10px] font-medium bg-white/5 border border-white/10 rounded-full text-white/70">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-      ),
-    },
-    {
-      title: "2022 - 2025",
-      content: (
-        <div className="space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-2xl glass-card">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-              <Briefcase className="size-4 sm:size-5" />
-            </div>
-            <div>
-              <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">Freelance Software Engineer</h3>
-              <p className="text-[11px] sm:text-xs text-emerald-400 font-mono">DNT Services & Remote Companies</p>
-            </div>
-          </div>
-          <p className="text-white/60 font-light text-xs sm:text-sm leading-relaxed">
-            Worked remotely building custom web applications, client dashboards, and frontend interfaces for DNT Services and international companies.
-          </p>
-          <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1 sm:pt-2">
-            {["React", "JavaScript", "TypeScript", "Node.js", "Web Apps"].map((skill) => (
-              <span key={skill} className="px-2 sm:px-2.5 py-1 text-[9px] sm:text-[10px] font-medium bg-white/5 border border-white/10 rounded-full text-white/70">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-      ),
-    },
-  ];
-
   return (
-    <section id="experience" className="py-16 sm:py-24 md:py-36 bg-[#030712] relative overflow-hidden">
-      <div className="container px-2 sm:px-6 relative z-10">
-        <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4 mb-10 sm:mb-16">
-          <p className="text-emerald-400 font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs">Career Timeline</p>
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
-            Professional <span className="text-reveal">Track Record.</span>
-          </h2>
+    <section id="experience" className="py-16 sm:py-24 border-t border-white/5 relative">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        {/* Section Header */}
+        <div className="space-y-2 mb-12">
+          <p className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400">
+            Career Timeline
+          </p>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+              Work Experience & Mentorship
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-400">
+              4+ years of building production software and mentoring engineers.
+            </p>
+          </div>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Timeline data={timelineData} />
-        </div>
-
-        {/* Skill Badges */}
-        <div className="mt-12 sm:mt-20 max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-          {techSkills.map((item) => (
+        {/* Minimalist Editorial Timeline */}
+        <div className="space-y-6 sm:space-y-8">
+          {experiences.map((exp, idx) => (
             <motion.div
-              key={item.name}
-              whileHover={{ y: -6, scale: 1.02 }}
-              className="glass p-4 sm:p-6 rounded-2xl border border-white/10 flex flex-col items-center justify-center gap-2 sm:gap-3 group hover:border-emerald-500/40 hover:shadow-[0_0_25px_rgba(16,185,129,0.15)] transition-all duration-300"
+              key={idx}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
+              className="p-5 sm:p-6 rounded-2xl border border-white/10 bg-white/[0.02] hover:border-emerald-500/30 transition-all space-y-3"
             >
-              <div className="text-white/40 group-hover:text-emerald-400 transition-colors duration-300">
-                {item.logo}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                    {exp.role}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-emerald-400 font-semibold">
+                    {exp.company}
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 text-xs font-mono text-slate-400">
+                  <span className="flex items-center gap-1">
+                    <Calendar className="size-3.5 text-slate-500" />
+                    <span>{exp.period}</span>
+                  </span>
+                  <span>·</span>
+                  <span className="flex items-center gap-1">
+                    <MapPin className="size-3.5 text-slate-500" />
+                    <span>{exp.location}</span>
+                  </span>
+                </div>
               </div>
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white/60 group-hover:text-white transition-colors">
-                {item.name}
-              </span>
+
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                {exp.description}
+              </p>
+
+              <ul className="space-y-1 text-xs text-slate-400 leading-relaxed list-disc list-outside pl-4 pt-1">
+                {exp.highlights.map((bullet, i) => (
+                  <li key={i} className="pl-0.5">
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="pt-2 border-t border-white/5 flex flex-wrap gap-1.5">
+                {exp.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-2 py-0.5 text-[10px] font-mono text-slate-400 bg-white/5 rounded border border-white/5"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );
 };
-
